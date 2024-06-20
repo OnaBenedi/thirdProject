@@ -1,0 +1,25 @@
+.side-menu-hidden{
+    display: flex;
+    flex-direction: column;
+    & .main-logo-small{
+        height: 10vh;
+    }
+    & hr{
+        border: 2px solid #aececa;
+        background-color: #aececa;
+        height: 2px;
+        width: 100%;
+    }
+    & div{
+        display: flex;
+        padding: 5%;
+        gap: 1vw;
+        justify-content: space-between;
+        align-items: center;
+        & .user-icon{
+            height: 5vh;
+            width: 3vw;
+            border-radius: 50%;
+        }
+    }
+}
