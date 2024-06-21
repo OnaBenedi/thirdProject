@@ -1,5 +1,5 @@
 .side-menu-hidden{
-    display: flex;
+    display: none;
     flex-direction: column;
     & .main-logo-small{
         height: 10vh;
