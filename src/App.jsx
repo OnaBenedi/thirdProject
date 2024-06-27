@@ -1,11 +1,12 @@
 import "./App.css";
-import Home from "./components/home/Home";
+import Prueba from "./Prueba";
+// import Home from "./components/home/Home";
 
 
 function App() {
   return (
-    <>
-    <Home/>      
+    <>  
+    <Prueba/>  
     </>
   );
 }
