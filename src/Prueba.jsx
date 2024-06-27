@@ -7,8 +7,13 @@ function Prueba() {
 
     let distance = retreivedData.rows[0].elements[0].distance.value;
     let duration = retreivedData.rows[0].elements[0].duration.text
+
+    const retreivedDataStatus = retreivedData.rows[0].elements[0].status
     console.log(retreivedData);
     console.log(distance, duration);
+    console.log(retreivedDataStatus);
+
+    //funciona!!
   }
   fetchDirections();
   return <div>Prueba</div>;

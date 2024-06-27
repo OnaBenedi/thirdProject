@@ -5,19 +5,28 @@ import greenPin from "../../../assets/other-icons/location-pin-green.png";
 import useGoogleMaps from "../../../hooks/useGoogleMaps";
 
 function HomeBody() {
+  //almacena las direcciones escritas
   const [from, setFrom] = useState("");
   const [destination, setDestination] = useState("");
 
+  //importa la data del hook que hace el primer fetch, trae la distancia y el tiempo
   const {data, error, isLoading} = useGoogleMaps(from, destination);
 
+  //almacena la distancia y el tiempo, se debe pasar al useCalculatePrice hook y a su vez a la comparativa
+  let distance = data.rows[0].elements[0].distance.value;
+  let tripDuration = data.rows[0].elements[0].duration.text; //useParams??
+
+  //establece punto de origen
   function handleOriginTrip(event){
     setFrom(event.target.value)
   }
 
+  //establece destino
   function handleDestinationTrip(event){
     setDestination(event.target.value)
   }
 
+  //evita funcionamiento form habitual
   function handleSubmit(event){
     event.preventDefault();
 

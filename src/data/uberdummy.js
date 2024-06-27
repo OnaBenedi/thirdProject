@@ -1,6 +1,7 @@
 let value;
 let distance; 
 
+
 function populateValues(){
     
     distance = Math.random();
