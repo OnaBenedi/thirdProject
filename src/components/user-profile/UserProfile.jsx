@@ -1,6 +1,12 @@
+import Header from "../header/Header"
+import UserProfileBody from "./user-profile-body/UserProfileBody"
+
 function UserProfile() {
   return (
-    <div>UserProfile</div>
+    <>
+      <Header/>
+      <UserProfileBody/>
+    </>
   )
 }
 
