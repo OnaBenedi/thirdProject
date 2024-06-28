@@ -12,7 +12,7 @@ function useGoogleMaps(
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
+  // useEffect(() => {
 
     //se realiza un fetch que se inicia al cambiar los parametros de origen y destino
     async function fetchDirections() {
@@ -22,7 +22,7 @@ function useGoogleMaps(
       const retreivedData = await fetchData.json();
 
       //almacenamos el estatus por si se da un error poderlo analizar
-      const retreivedDataStatus = retreivedData.rows[0].elements[0].status;
+      const retreivedDataStatus = retreivedData.rows[0]?.elements[0]?.status;
 
       //en el try se comprueba que el error no venga de la API en el caso de que el fetch funcione bien
       try {
@@ -53,13 +53,14 @@ function useGoogleMaps(
 
       console.log(retreivedData);
     }
-    fetchDirections();
-  }, [originsParam, destinationsParam]);
+    // fetchDirections();
+  // }, [originsParam, destinationsParam]);
 
   return {
     data,
     error,
     isLoading,
+    fetchDirections,
   };
 }
 
