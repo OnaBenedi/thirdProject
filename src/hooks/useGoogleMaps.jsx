@@ -16,6 +16,7 @@ function useGoogleMaps(
 
     //se realiza un fetch que se inicia al cambiar los parametros de origen y destino
     async function fetchDirections() {
+      setIsLoading(true);
       const fetchData = await fetch(
         `https://maps.googleapis.com/maps/api/distancematrix/json?origins=${originsParam}&destinations=${destinationsParam}&key=AIzaSyBCrvSbt8BPoxZpDso07nt2dG8QxgVAl1M`
       );
@@ -26,7 +27,7 @@ function useGoogleMaps(
 
       //en el try se comprueba que el error no venga de la API en el caso de que el fetch funcione bien
       try {
-        setIsLoading(true); //aqui o fuera??
+         //aqui o fuera??
         if (retreivedDataStatus == "OK") {
           setData(retreivedData);
         } else if (retreivedDataStatus == "NOT_FOUND") {
@@ -45,8 +46,8 @@ function useGoogleMaps(
             "The requested route is too long and cannot be processed"
           );
         }
-      } catch {
-        setError(); //que metemos en error??
+      } catch(err) {
+        setError(err);
       } finally {
         setIsLoading(false);
       }
