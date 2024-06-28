@@ -9,6 +9,7 @@
 
   & .header-img-logo {
     height: 25vh;
+    width: 100vw;
   }
   & button{
     height: 10vh;

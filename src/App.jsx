@@ -9,9 +9,12 @@ import Help from "./components/help/Help";
 
 function App() {
   return (
-    <>
-    <Home/>      
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/home" element={<Home/>}/>
+        <Route path="profile" element={<UserProfile/>}/>
+        </Routes>      
+    </BrowserRouter>
   );
 }
 

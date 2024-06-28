@@ -1,30 +1,46 @@
-import dummyIcon from "../../../assets/other-icons/temporary-user.png"
+import React, { useState } from 'react';
+import './HamburguerMenu.css';
 import mainLogo from "../../../assets/logos/main-logo.png"
-import "./HamburguerMenu.css"
 
 function HamburguerMenu() {
-    function handleSideMenu(){
+  const [isOpen, setIsOpen] = useState(false);
 
-    }
+  function toggleMenu() {
+    setIsOpen(!isOpen);
+  }
+
+  function closeMenu() {
+    setIsOpen(false);
+  }
+
   return (
-    
-        <div className="side-menu-hidden" id="side-menu">
-            <img src={mainLogo} alt="logo-small" className="main-logo-small"/>
-            <hr />
-            <div>
-              <img src={dummyIcon} alt="user-icon" className="user-icon"/>
-              <a href="#">Perfil de usuario</a>
-            </div>
-            <hr />
-            <a href="#">Viajes</a>
-            <hr />
-            <a href="#">Configuración</a>
-
-
-            <a href="#">Ayuda</a>
+    <div>
+      {!isOpen && (
+        <div className="hamburger-icon" onClick={toggleMenu}>
+          <div className="bar"></div>
+          <div className="bar"></div>
+          <div className="bar"></div>
         </div>
-
-  )
+      )}
+      {isOpen && (
+        <nav className={`menu ${isOpen ? 'open' : ''}`}>
+        <img src={mainLogo} alt="logo-small" className="main-logo-small"/> 
+          <button className="close-button" onClick={closeMenu}>
+            <span>&times;</span>
+          </button>
+          <ul>
+            <li><a href="/home">Inicio</a></li>
+            <li><a href="/profile">Perfil</a></li>
+            <li><a href="/about">Viajes</a></li>
+            <li><a href="/contact">Ajustes</a></li>
+          </ul>
+        </nav>
+      )}
+    </div>
+  );
 }
 
-export default HamburguerMenu
+export default HamburguerMenu;
+
+
+

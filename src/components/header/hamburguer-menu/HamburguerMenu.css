@@ -1,25 +1,77 @@
-.side-menu-hidden{
+.hamburger-icon {
+    width: 30px;
+    height: 20px;
     display: flex;
     flex-direction: column;
-    & .main-logo-small{
-        height: 10vh;
-    }
-    & hr{
-        border: 2px solid #aececa;
-        background-color: #aececa;
-        height: 2px;
-        width: 100%;
-    }
-    & div{
-        display: flex;
-        padding: 5%;
-        gap: 1vw;
-        justify-content: space-between;
-        align-items: center;
-        & .user-icon{
-            height: 5vh;
-            width: 3vw;
-            border-radius: 50%;
-        }
-    }
-}
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 1000;
+  }
+  
+  .hamburger-icon .bar {
+    width: 100%;
+    height: 4px;
+    background-color: #333;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .menu {
+    position: fixed;
+    top: 0;
+    right: -250px; 
+    width: 250px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease-in-out;
+    z-index: 999;
+  }
+  
+  .menu.open {
+    right: 0; 
+  }
+  .main-logo-small{
+    height: 10vh;
+  }
+  .menu ul {
+    list-style: none;
+    padding: 20px;
+    margin: 0;
+    position: relative;
+    top: 0;
+  }
+  
+  .menu ul li {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .menu ul li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .menu ul li a:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .close-button span {
+    font-size: 24px;
+  }
+  
+  
+  
+  
+  
+  
