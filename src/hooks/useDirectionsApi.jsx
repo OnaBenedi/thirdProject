@@ -1,5 +1,5 @@
 function useDirectionsApi() {
-    //https://maps.googleapis.com/maps/api/directions/json?destination=${destinationsParam}&origin=${originsParam}&mode=${selectedTransport}&key=hd9Zir96lOkY2v_B71c8M6tS5kk=
+    //https://maps.googleapis.com/maps/api/directions/json?destination=${destinationsParam}&origin=${originsParam}&mode=${selectedTransport}&key=5S4RSglOpm3xSWWjpYu67USxeuY=
 
     //default mode: driving; mode: walking, bicycling, transit(public)
 
