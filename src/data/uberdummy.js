@@ -1,17 +1,24 @@
 let uberValue;
 let cabifyValue;
 
+let weatherPrice;
+
+let demandPrice;
+
+let uberFinalValue;
+let cabifyFinalValue;
+
 //"api" uber/cabify pedirle el precio km, la app es la que te hace el calculo del precio del servicio (precio km, precio clima y precio demanda)
 //app calcula precio final en si usando distancia, tiempo, precio servicio
 function calculateKMPrice() {
   //functiones que te calculan precio minimo, precio maximo y precio final
-  function randomMinPrice(min, max) {
-    return Math.random() * (max - min + 1) + min;
-  }
+  // function randomMinPrice(min, max) {
+  //   return Math.random() * (max - min + 1) + min;
+  // }
 
-  function randomMaxPrice(min, max) {
-    return Math.random() * (max - min + 1) + min;
-  }
+  // function randomMaxPrice(min, max) {
+  //   return Math.random() * (max - min + 1) + min;
+  // }
 
   function finalPrice(min, max) {
     return Math.random() * (max - min + 1) + min;
@@ -21,37 +28,90 @@ function calculateKMPrice() {
   let factor = Math.pow(10, 2);
 
   //calculo de parametros de uber
-  let uberMinPrice = randomMinPrice(1, 3);
-  let uberMaxPrice = randomMaxPrice(4, 6);
+  // let uberMinPrice = randomMinPrice(1, 2);
+  // let uberMaxPrice = randomMaxPrice(3, 4);
 
   //calculo de parametros de cabify
-  let cabifyMinPrice = randomMinPrice(1, 3);
-  let cabifyMaxPrice = randomMaxPrice(4, 6);
+  // let cabifyMinPrice = randomMinPrice(1, 2);
+  // let cabifyMaxPrice = randomMaxPrice(3, 4);
 
   //calculo final uber
-  let uberFinalPrice = finalPrice(uberMinPrice, uberMaxPrice);
-  let uberFinalRounded = Math.round(uberFinalPrice * factor) / factor;
+  let uberFinalPrice = finalPrice(1,2);
+  uberValue = Math.round(uberFinalPrice * factor) / factor;
 
-  let cabifyFinalPrice = finalPrice(cabifyMinPrice, cabifyMaxPrice);
-  let cabifyFinalRounded = Math.round(cabifyFinalPrice * factor) / factor;
+  let cabifyFinalPrice = finalPrice(1,2);
+  cabifyValue = Math.round(cabifyFinalPrice * factor) / factor;
+}
 
-  return { uberFinalRounded, cabifyFinalRounded };
+function calculateClimatePrice() {
+  function randomClimate(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  }
+  let climate = randomClimate(1, 3);
+
+  if (climate == 1) {
+    weatherPrice = 1;
+  } else if (climate == 2) {
+    weatherPrice = 1.5;
+  } else if (climate == 3) {
+    weatherPrice = 2;
+  }
+}
+
+function calculateDemand() {
+  let demand;
+  function randomDemand(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  }
+
+  demand = randomDemand(1, 3);
+  if (demand == 1) {
+    demandPrice = 0.5;
+  } else if (demand == 2) {
+    demandPrice = 1;
+  } else if (demand == 3) {
+    demandPrice = 1.5;
+  }
 }
 
 calculateKMPrice();
 
-function populateValues() {
-  value = distance * Math.floor(Math.random() * (10 - 5 + 1) + 5);
+console.log("uber " + uberValue);
+console.log("cabify " + cabifyValue);
+//ver como hacer para que no se cambie cada vez que haces fetch, solo cuando cambia la pagina??
+calculateClimatePrice();
+
+console.log("weather " + weatherPrice);
+calculateDemand();
+console.log("demand " + demandPrice);
+
+function calculateFinalPrice(){
+  let factor = Math.pow(10, 2);
+  let unroundedUber = uberValue * (weatherPrice + demandPrice);
+  let unroundedCabify = cabifyValue * (weatherPrice + demandPrice);
+  
+  uberFinalValue = Math.round(unroundedUber * factor) / factor;
+  cabifyFinalValue = Math.round(unroundedCabify * factor) / factor;
 }
 
-populateValues();
-const dataDummy = {
+calculateFinalPrice()
+const uberDummy = {
   fare: {
-    value: value,
-    display: `${value}€`,
+    value: uberFinalValue,
+    display: `${uberFinalValue}€`,
     currency_code: "EUR",
   },
   pickup_estimate: 4, //crear tiempo aleatorio recogida
 };
 
-console.log(dataDummy);
+const cabifyDummy = {
+  fare: {
+    value: cabifyFinalValue,
+    display: `${cabifyFinalValue}€`,
+    currency_code: "EUR",
+  },
+  pickup_estimate: 4, //crear tiempo aleatorio recogida
+};
+
+let trial = cabifyDummy.fare.value * 30
+console.log(uberDummy, cabifyDummy, trial);
