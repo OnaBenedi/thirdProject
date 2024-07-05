@@ -130,8 +130,8 @@ export function main() {
   };
 
   const fareDummy = {
-    weather_conditions: `The current weather is ${weatherCondition}`,
-    demand_conditions: `The current demand is ${demandCondition}`,
+    weather_conditions: weatherCondition,
+    demand_conditions: demandCondition,
   };
 
   return {

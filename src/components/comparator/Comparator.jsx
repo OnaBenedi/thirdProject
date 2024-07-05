@@ -1,23 +1,31 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { calculateTripPrice } from "../../data/uberdummy";
 //, cabifyKmPrice, distance
-function Comparator({uberKmPrice, distance}) {
-   // const [uberPrice, setUberPrice] = useState();
-    // const [cabifyPrice, setCabifyPrice] = useState();
-    const {} = calculateTripPrice();
-    let uberPrice = calculateTripPrice(uberKmPrice, distance)
+function Comparator({uberData, cabifyData, distance, time}) {
+    const [uberPrice, setUberPrice] = useState();
+    const [cabifyPrice, setCabifyPrice] = useState();
+    //const {} = calculateTripPrice();
+     
+     
     //setUberPrice()
-
-    console.log(uberPrice.finalTripPrice);
+useEffect(()=>{
+    setUberPrice(calculateTripPrice(uberData.fare.value, distance))
+    setCabifyPrice(calculateTripPrice(cabifyData.fare.value, distance))
+}, [])
     
 
   return (
     <div>
-        <div>UBER PRICE
-            {uberPrice.finalTripPrice}
+        Durada del trayecto: {time}
+        <div> 
+             {uberPrice ? `Precio de tu viaje con Uber: ${uberPrice.finalTripPrice} ${uberData.fare.currency_code}
+            El conductor tardará aproximadamente: ${uberData.pickup_estimate} minutos en llegar` : null}
         </div>
-        <div>CABIFY PRICE</div>
-        <div>TAXI PRICE</div>
+        <div>
+        { cabifyPrice ? `Precio de tu viaje con Cabify: ${cabifyPrice.finalTripPrice} ${cabifyData.fare.currency_code}
+        El conductor tardará aproximadamente: ${cabifyData.pickup_estimate} minutos en llegar`: null}
+        </div>
+    
     </div>
   )
 }
