@@ -10,6 +10,8 @@ let demandCondition;
 let uberFinalValue;
 let cabifyFinalValue;
 
+let cabifyPickUpTime;
+let uberPickUpTime;
 //"api" uber/cabify pedirle el precio km, la app es la que te hace el calculo del precio del servicio (precio km, precio clima y precio demanda)
 //app calcula precio final en si usando distancia, tiempo, precio servicio
 function calculateKMPrice() {
@@ -38,11 +40,11 @@ function calculateKMPrice() {
   // let cabifyMaxPrice = randomMaxPrice(3, 4);
 
   //calculo final uber
-  let uberFinalPrice = finalPrice(1, 2);
-  uberValue = Math.round(uberFinalPrice * factor) / factor;
+  let uberKmFinalPrice = finalPrice(1, 2);
+  uberValue = Math.round(uberKmFinalPrice * factor) / factor;
 
-  let cabifyFinalPrice = finalPrice(1, 2);
-  cabifyValue = Math.round(cabifyFinalPrice * factor) / factor;
+  let cabifyKmFinalPrice = finalPrice(1, 2);
+  cabifyValue = Math.round(cabifyKmFinalPrice * factor) / factor;
 }
 
 function calculateClimatePrice() {
@@ -93,13 +95,21 @@ function calculateFinalPrice() {
   cabifyFinalValue = Math.round(unroundedCabify * factor) / factor;
 }
 
+function calculatePickUpTime() {
+  function randomPickUpTime(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  }
+  uberPickUpTime = randomPickUpTime(1, 20);
+  cabifyPickUpTime = randomPickUpTime(1, 20);
+}
 
 //exportar como modulo!! coger desde home, useEffect desde home
- function main() {
+export function main() {
   calculateKMPrice();
   calculateClimatePrice();
   calculateDemand();
   calculateFinalPrice();
+  calculatePickUpTime();
 
   const uberDummy = {
     fare: {
@@ -107,24 +117,39 @@ function calculateFinalPrice() {
       display: `${uberFinalValue}€`,
       currency_code: "EUR",
     },
-    pickup_estimate: 4, //crear tiempo aleatorio recogida
+    pickup_estimate: uberPickUpTime, //crear tiempo aleatorio recogida
   };
-  
+
   const cabifyDummy = {
     fare: {
       value: cabifyFinalValue,
       display: `${cabifyFinalValue}€`,
       currency_code: "EUR",
     },
-    fare_data: {
-      weather_conditions: `The current weather is ${weatherCondition}`,
-      demand_conditions: `The current demand is ${demandCondition}`,
-    },
-    pickup_estimate: 4, //crear tiempo aleatorio recogida
+    pickup_estimate: cabifyPickUpTime, //crear tiempo aleatorio recogida
   };
 
-  return{
+  const fareDummy = {
+    weather_conditions: `The current weather is ${weatherCondition}`,
+    demand_conditions: `The current demand is ${demandCondition}`,
+  };
+
+  return {
     uberDummy,
-    cabifyDummy
-  }
+    cabifyDummy,
+    fareDummy,
+  };
+}
+
+export function calculateTripPrice(companyPrice, distance) {
+  //+((price / listprice).toFixed(2)) 
+  //como redondear dos decimales
+
+  const finalTripPriceUnrounded =  companyPrice*distance
+  const finalTripPrice =  +((finalTripPriceUnrounded).toFixed(2))
+  
+  //((Math.round(companyPrice * distance))* 100) / 100;
+  return {
+    finalTripPrice,
+  };
 }
