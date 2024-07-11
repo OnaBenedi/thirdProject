@@ -1,0 +1,109 @@
+* {
+  box-sizing: border-box;
+}
+
+.Login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #f5f5f5;
+}
+
+.container {
+  display: flex;
+  width: 800px;
+  height: 500px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+.left {
+  flex: 1;
+  background-color: #6BBAA7;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  padding: 20px;
+}
+
+.left h2 {
+  margin-bottom: 20px;
+}
+
+.signInButton {
+  padding: 10px 20px;
+  width: 150px;
+  border: none;
+  border-radius: 50px;
+  background-color: white;
+  color: #6BBAA7;
+  cursor: pointer;
+}
+
+.right {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.right h2 {
+  color: #6BBAA7;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+}
+
+.login-input {
+  margin-bottom: 10px;
+  width: 350px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background: #F2F2F2;
+  color: #B8B8B8;
+}
+
+.login-input::placeholder {
+  color: #B8B8B8;
+}
+
+.loginButton {
+  padding: 10px;
+  margin-top: 20px;
+  width: 150px;
+  border: none;
+  border-radius: 50px;
+  background-color: #6BBAA7;
+  color: white;
+  cursor: pointer;
+}
+
+.resetPassword {
+  margin-top: 10px;
+  color: #6BBAA7;
+  text-decoration: none;
+}
+
+.resetPassword:hover {
+  color: #6BBAA7;
+  text-decoration: underline;
+}
