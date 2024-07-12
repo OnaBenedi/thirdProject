@@ -6,6 +6,26 @@ import Login from "./components/pages/Login";
 
 
 function App() {
+  // PRUEBAS USUARIOS
+
+  // const [user, setUser] = useState(null);
+  // const [email, setEmail] = useState('');
+  // const [password, setPassword] = useState('');
+
+  // useEffect(() => {
+  //   const savedUser = Cookies.get('user');
+  //   if (savedUser) {
+  //     setUser(JSON.parse(savedUser));
+  //   }
+  // }, []);
+
+  // const handleLogin = (e) => {
+  //   e.preventDefault();
+  //   const user = { email, password }; // Normally, you'd validate these credentials
+  //   setUser(user);
+  //   Cookies.set('user', JSON.stringify(user), { expires: 7 });
+  // };
+
   return (
     <BrowserRouter>
       <Routes>
