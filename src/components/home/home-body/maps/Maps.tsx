@@ -8,6 +8,11 @@ import {
   MapCameraChangedEvent,
 } from "@vis.gl/react-google-maps";
 
+//import dotenv from 'dotenv';
+
+// dotenv.config();
+const apiKey: any = import.meta.env.VITE_API_KEY
+const mapId: any = import.meta.env.VITE_MAP_ID
 
 function Maps({ origin, destination }) {
   const madrid = { lat: 40.416775, lng: -3.70379 };
@@ -20,7 +25,7 @@ function Maps({ origin, destination }) {
   });
   return (
     <APIProvider
-      apiKey={"AIzaSyBCrvSbt8BPoxZpDso07nt2dG8QxgVAl1M"}
+      apiKey={apiKey}
       region={"ES"}
       language={"es"}
       onLoad={() => console.log("Maps API has loaded.")}
@@ -38,7 +43,7 @@ function Maps({ origin, destination }) {
           }
           defaultCenter={position}
           defaultZoom={14}
-          mapId={"f66b1a9ebf8342e1"}
+          mapId={mapId}
           fullscreenControl={false}
         >
           <Directions origin={origin} destination={destination} />
