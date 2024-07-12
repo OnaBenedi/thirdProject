@@ -8,9 +8,11 @@ import {
   MapCameraChangedEvent,
 } from "@vis.gl/react-google-maps";
 
+
 function Maps({ origin, destination }) {
   const madrid = { lat: 40.416775, lng: -3.70379 };
   const position = madrid;
+
 
   const [viewState, setViewState] = useState({
     longitude: -3.70379,
