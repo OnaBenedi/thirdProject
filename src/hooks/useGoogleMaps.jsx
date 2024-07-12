@@ -17,7 +17,7 @@ function useGoogleMaps(
     //se realiza un fetch que se inicia al cambiar los parametros de origen y destino
     async function fetchDirections() {
       const fetchData = await fetch(
-        `https://maps.googleapis.com/maps/api/distancematrix/json?origins=${originsParam}&destinations=${destinationsParam}&key=AIzaSyBCrvSbt8BPoxZpDso07nt2dG8QxgVAl1M`
+        `https://maps.googleapis.com/maps/api/distancematrix/json?origins=${originsParam}&destinations=${destinationsParam}&key=AIzaSyBCrvSbt8BPoxZpDso07nt2dG8QxgVAl1M&libraries=places`
       );
       const retreivedData = await fetchData.json();
 

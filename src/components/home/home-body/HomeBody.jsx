@@ -5,6 +5,7 @@ import greenPin from "../../../assets/other-icons/location-pin-green.png";
 import useGoogleMaps from "../../../hooks/useGoogleMaps";
 import Comparator from "../../comparator/Comparator";
 import { main } from "../../../data/uberdummy";
+import Maps from "./maps/Maps";
 
 function HomeBody() {
   //almacena las direcciones escritas
@@ -29,7 +30,7 @@ function HomeBody() {
   const [uberData, setUberData] = useState();
   const [cabifyData, setCabifyData] = useState();
   const [fareData, setFareData] = useState()
-  
+
   //cargamos la api a la vez que la pagina
   useEffect(() => {
     main();
@@ -37,7 +38,7 @@ function HomeBody() {
     setCabifyData(cabifyDummy);
     setFareData(fareDummy)
 
-    
+
   }, []); //por que se ejecuta cada vez que se teclea?
 
 
@@ -56,7 +57,7 @@ function HomeBody() {
 //     setDemand("alta")
 //   }
 
- 
+
   useEffect(() => {
     if (originAndDestination.origin && originAndDestination.destination) {
       fetchDirections();
@@ -64,7 +65,7 @@ function HomeBody() {
   }, [originAndDestination]);
   //almacena la distancia y el tiempo, se debe pasar al useCalculatePrice hook y a su vez a la comparativa
   let distance = data ? (data.rows[0].elements[0].distance.value/1000) : null;
-  let tripDuration = data ? data.rows[0].elements[0].duration.text : null; 
+  let tripDuration = data ? data.rows[0].elements[0].duration.text : null;
 
   //establece punto de origen
   function handleOriginTrip(event) {
@@ -118,7 +119,7 @@ function HomeBody() {
         <button>Buscar ruta</button>
       </form>
       { fareData ? <div>
-        
+
         {fareData.weather_conditions === "sunny" && `Clima actual: soleado`}
         {fareData.weather_conditions === "rainy" && `Clima actual: lluvia`}
         {fareData.weather_conditions === "snowy" && `Clima actual: nieve`}
@@ -128,12 +129,7 @@ function HomeBody() {
         {fareData.demand_conditions === "regular" && `Demanda del servicio: media`}
         {fareData.demand_conditions === "high" && `Demanda del servicio: alta`}
       </div> : null }
-      <div className="mapa-home">
-        <img
-          src="https://miro.medium.com/v2/resize:fit:1400/1*qYUvh-EtES8dtgKiBRiLsA.png"
-          alt="map-img"
-        />
-      </div>
+      {data ? <Maps origin={originAndDestination.origin} destination={originAndDestination.destination}></Maps> : null}
       {data ? (
         <div>
           <Comparator uberData={uberData} cabifyData = {cabifyData} distance = {distance} time = {tripDuration} />
