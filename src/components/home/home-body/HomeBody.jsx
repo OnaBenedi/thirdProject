@@ -96,28 +96,24 @@ function HomeBody() {
           <h2>Bienvenido a HopOn!</h2>
         </div>
         <form onSubmit={handleSubmit} className="search">
-          <div className="search-input">
-            <img src={redPin} alt="from-pin" />
-            <label htmlFor="from">Origen trayecto:</label>
-            <input
-              type="text"
-              name="from"
-              value={from}
-              onChange={handleOriginTrip}
-            />
-          </div>
+          <label htmlFor="from">Origen trayecto:</label>
+          <input
+            type="text"
+            name="from"
+            value={from}
+            onChange={handleOriginTrip}
+            className="search-input"
+          />
           <div className="line-space"></div>
-          <div className="search-input">
-            <img src={greenPin} alt="destination-pin" />
-            <label htmlFor="destination">Destino:</label>
-            <input
-              type="text"
-              name="destination"
-              value={destination}
-              onChange={handleDestinationTrip}
-            />
-          </div>
-          <button className="search-button">Buscar ruta</button>
+          <label htmlFor="destination">Destino:</label>
+          <input
+            type="text"
+            name="destination"
+            value={destination}
+            onChange={handleDestinationTrip}
+            className="search-input"
+          />
+          <button className="search-button">🔍</button>
         </form>
       </div>
 
@@ -127,11 +123,20 @@ function HomeBody() {
           {fareData.weather_conditions === "rainy" && `Clima actual: lluvia`}
           {fareData.weather_conditions === "snowy" && `Clima actual: nieve`}
 
-        {fareData.demand_conditions === "low" && `Demanda del servicio: baja`}
-        {fareData.demand_conditions === "regular" && `Demanda del servicio: media`}
-        {fareData.demand_conditions === "high" && `Demanda del servicio: alta`}
-      </div>) : null }
-      {data ? <Maps origin={originAndDestination.origin} destination={originAndDestination.destination}></Maps> : null}
+          {fareData.demand_conditions === "low" && `Demanda del servicio: baja`}
+          {fareData.demand_conditions === "regular" &&
+            `Demanda del servicio: media`}
+          {fareData.demand_conditions === "high" &&
+            `Demanda del servicio: alta`}
+        </div>
+      ) : null}
+      {data ? (
+        <Maps
+          origin={originAndDestination.origin}
+          destination={originAndDestination.destination}
+          className="map-container"
+        ></Maps>
+      ) : null}
       {data ? (
         <div>
           <Comparator
@@ -139,6 +144,7 @@ function HomeBody() {
             cabifyData={cabifyData}
             distance={distance}
             time={tripDuration}
+
           />
         </div>
       ) : null}

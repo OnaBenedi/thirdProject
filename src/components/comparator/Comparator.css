@@ -1,0 +1,48 @@
+.comparator {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px;
+}
+
+.option {
+  padding: 10px;
+  margin: 10px;
+  position: relative;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.option img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.ride-text{
+  padding-bottom: 10%;
+}
+
+.select-button {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #00b894;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.image-option {
+  width: 150px;
+  height: 180px;
+  margin: 20px 0 50px;
+  object-fit: cover;
+}
+
+.radio-option {
+  color: #000;
+  padding-left: 10px;
+}
