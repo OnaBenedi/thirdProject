@@ -5,7 +5,7 @@ function Home() {
 
   return (
     <div>
-      
+
       <Header/>
       Welcome to HopOn! Currently under development
       <HomeBody/>
