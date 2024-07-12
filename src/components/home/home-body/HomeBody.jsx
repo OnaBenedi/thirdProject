@@ -5,6 +5,7 @@ import greenPin from "../../../assets/other-icons/location-pin-green.png";
 import useGoogleMaps from "../../../hooks/useGoogleMaps";
 import Comparator from "../../comparator/Comparator";
 import { main } from "../../../data/uberdummy";
+import Maps from "./maps/Maps";
 
 function HomeBody() {
   //almacena las direcciones escritas
@@ -126,19 +127,11 @@ function HomeBody() {
           {fareData.weather_conditions === "rainy" && `Clima actual: lluvia`}
           {fareData.weather_conditions === "snowy" && `Clima actual: nieve`}
 
-          {fareData.demand_conditions === "low" && `Demanda del servicio: baja`}
-          {fareData.demand_conditions === "regular" &&
-            `Demanda del servicio: media`}
-          {fareData.demand_conditions === "high" &&
-            `Demanda del servicio: alta`}
-        </div>
-      ) : null}
-      <div className="mapa-home">
-        <img
-          src="https://miro.medium.com/v2/resize:fit:1400/1*qYUvh-EtES8dtgKiBRiLsA.png"
-          alt="map-img"
-        />
-      </div>
+        {fareData.demand_conditions === "low" && `Demanda del servicio: baja`}
+        {fareData.demand_conditions === "regular" && `Demanda del servicio: media`}
+        {fareData.demand_conditions === "high" && `Demanda del servicio: alta`}
+      </div>) : null }
+      {data ? <Maps origin={originAndDestination.origin} destination={originAndDestination.destination}></Maps> : null}
       {data ? (
         <div>
           <Comparator

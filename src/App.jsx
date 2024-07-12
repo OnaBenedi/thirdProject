@@ -3,7 +3,7 @@ import Home from "./components/home/Home";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import UserProfile from "./components/user-profile/UserProfile";
 import Login from "./components/pages/Login";
-
+//dotenv? para almacenar api key
 
 function App() {
   // PRUEBAS USUARIOS
