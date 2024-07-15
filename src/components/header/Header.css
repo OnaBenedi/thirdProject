@@ -6,6 +6,7 @@
   width: 100%;
   margin-left: 0;
   padding: 0 5%;
+  gap: 5%;
 
   & .header-img-logo {
     height: 25vh;
