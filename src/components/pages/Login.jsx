@@ -1,6 +1,9 @@
 import "./Login.css";
 import { useState } from "react";
 import { register, login } from "../../../user-info/login";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../config/firebase";
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -8,6 +11,7 @@ function Login() {
   const [isRegister, setIsRegister] = useState(false);
   const [token, setToken] = useState(null);
   const [message, setMessage] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -17,12 +21,12 @@ function Login() {
 
     if (isRegister) {
       try {
-        if (emailTrue && passwordTrue){
-        await register(email, password);
-        setMessage("User created successfully!");
-        } else{
-          setMessage("Please provide both email and password")
-        }  
+        if (emailTrue && passwordTrue) {
+          await register(email, password);
+          setMessage("User created successfully!");
+        } else {
+          setMessage("Please provide both email and password");
+        }
       } catch (error) {
         console.error(error);
         setMessage("Error creating user");
@@ -30,11 +34,12 @@ function Login() {
     } else {
       try {
         if (emailTrue && passwordTrue) {
-        const token = await login(email, password);
-        setToken(token);
-        setMessage("Logged in successfully!");
-        } else{
-          setMessage("Please provide both email and password")
+          navigate("/home");
+          const token = await login(email, password);
+          setToken(token);
+          setMessage("Logged in successfully!");
+        } else {
+          setMessage("Please provide both email and password");
         }
       } catch (error) {
         console.error(error);
@@ -46,6 +51,22 @@ function Login() {
   const toggleRegister = () => {
     setIsRegister(!isRegister);
   };
+
+  const signIn = async () => {
+    try {
+      await signInWithEmailAndPassword(auth, email, password).then(
+        (userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          // ...
+        }
+      );
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  console.log(auth?.currentUser);
 
   return (
     <div className="Login">
@@ -76,7 +97,7 @@ function Login() {
             {isRegister ? (
               <button type="submit">Regístrate</button>
             ) : (
-              <button type="submit" className="loginButton">
+              <button type="submit" className="loginButton" onClick={signIn}>
                 Iniciar Sesión
               </button>
             )}
