@@ -1,18 +1,10 @@
 import './Home.css'
+import Header from './Header'
 
 function Home() {
   return (
     <div className="App">
-      <header>
-        <div className="header-content">
-          <div className="menu-icon">
-            <div className="bar"></div>
-            <div className="bar"></div>
-            <div className="bar"></div>
-          </div>
-        </div>
-      </header>
-
+      <Header></Header>
       <main>
         <div className="search-bar">
           <div className='title'>
@@ -30,6 +22,33 @@ function Home() {
         <div className="map-container">
           <img className='map-placeholder' src="src\assets\img\map-placeholder.webp" alt="Map Placeholder" />
         </div>
+
+        <div class="comparator">
+          <div class="option selected">
+            <input type="radio" name="option1" id="option1" />
+            <label className='radio-option' htmlFor="option1">Opción 1</label>
+
+            <img className='image-option' src="src\assets\img\map-placeholder.webp" alt="Opción 1" />
+            <button class="select-button">Select</button>
+          </div>
+
+          <div class="option">
+            <input type="radio" name="option2" id="option1" />
+            <label className='radio-option' htmlFor="option1">Opción 2</label>
+
+            <img className='image-option' src="src\assets\img\map-placeholder.webp" alt="Opción 2" />
+            <button class="select-button">Select</button>
+          </div>
+
+          <div class="option">
+            <input type="radio" name="option3" id="option1" />
+            <label className='radio-option' htmlFor="option1">Opción 3</label>
+
+            <img className='image-option' src="src\assets\img\map-placeholder.webp" alt="Opción 3" />
+            <button class="select-button">Select</button>
+          </div>
+        </div>
+
       </main>
 
     </div>
