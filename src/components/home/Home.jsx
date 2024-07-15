@@ -5,7 +5,6 @@ function Home() {
   return (
     <div className="App">
       <Header />
-      Welcome to HopOn! Currently under development
       <main>
         <HomeBody />
       </main>

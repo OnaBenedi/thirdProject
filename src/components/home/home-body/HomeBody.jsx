@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
 import "./HomeBody.css";
-import redPin from "../../../assets/other-icons/location-pin-2965.png";
-import greenPin from "../../../assets/other-icons/location-pin-green.png";
 import useGoogleMaps from "../../../hooks/useGoogleMaps";
 import Comparator from "../../comparator/Comparator";
 import { main } from "../../../data/uberdummy";
 import Maps from "./maps/Maps";
+import lowDemand from "../../../assets/svg/signal-weak-svgrepo-com.svg"
+import mediumDemand from "../../../assets/svg/signal-fair-svgrepo-com.svg"
+import highDemand from "../../../assets/svg/signal-strong-svgrepo-com.svg"
+import sunnyWeather from "../../../assets/svg/sun.svg"
+import rainyWeather from "../../../assets/svg/rain.svg"
+import snowyWeather from "../../../assets/svg/snow.svg"
 
 function HomeBody() {
   //almacena las direcciones escritas
@@ -24,11 +28,12 @@ function HomeBody() {
   );
 
   //llamamos a la "api" y nos proporciona el precio del trayecto y la info del clima etc
-  const { uberDummy, cabifyDummy, fareDummy } = main();
+  const { uberDummy, cabifyDummy, taxiDummy, fareDummy } = main();
 
   //almacenamos la info de la "api"
   const [uberData, setUberData] = useState();
   const [cabifyData, setCabifyData] = useState();
+  const [taxiData, setTaxiData] = useState();
   const [fareData, setFareData] = useState();
 
   //cargamos la api a la vez que la pagina
@@ -36,23 +41,9 @@ function HomeBody() {
     main();
     setUberData(uberDummy);
     setCabifyData(cabifyDummy);
+    setTaxiData(taxiDummy)
     setFareData(fareDummy);
-  }, []); //por que se ejecuta cada vez que se teclea?
-
-  // if(fareData.weather_conditions === "sunny"){
-  //   setClimate("soleado")
-  // }else if(fareData.weather_conditions === "rainy"){
-  // setClimate("lluvia")
-  // } else if(fareData.weather_conditions === "snowy"){
-  //   setClimate("nieve")}
-
-  //   if(fareData.demand_conditions === "low"){
-  //     setDemand("baja")
-  //  } else if (fareData.demand_conditions === "medium"){
-  //    setDemand("media")
-  //  } else if (fareData.demand_conditions === "high"){
-  //     setDemand("alta")
-  //   }
+  }, []);
 
   useEffect(() => {
     if (originAndDestination.origin && originAndDestination.destination) {
@@ -82,13 +73,6 @@ function HomeBody() {
     });
   }
 
-  //   fareData ? fareData.weather_conditions === "sunny" && "soleado" : null
-  // fareData ? fareData.weather_conditions === "rainy" && "lluvia" : null
-  // fareData ? fareData.weather_conditions === "snowy" && "nieve" : null
-
-  // fareData ? fareData.demand_conditions === "low" && "baja" : null
-  // fareData ? fareData.demand_conditions === "regular" && "media" : null
-  // fareData ? fareData.demand_conditions === "high" && "alta" : null
   return (
     <div className="home-body">
       <div className="search-bar">
@@ -96,7 +80,7 @@ function HomeBody() {
           <h2>Bienvenido a HopOn!</h2>
         </div>
         <form onSubmit={handleSubmit} className="search">
-          <label htmlFor="from">Origen trayecto:</label>
+          <label htmlFor="from">Origen:</label>
           <input
             type="text"
             name="from"
@@ -118,16 +102,23 @@ function HomeBody() {
       </div>
 
       {fareData ? (
-        <div>
-          {fareData.weather_conditions === "sunny" && `Clima actual: soleado`}
-          {fareData.weather_conditions === "rainy" && `Clima actual: lluvia`}
-          {fareData.weather_conditions === "snowy" && `Clima actual: nieve`}
+        <div className="fare-data">
 
-          {fareData.demand_conditions === "low" && `Demanda del servicio: baja`}
-          {fareData.demand_conditions === "regular" &&
-            `Demanda del servicio: media`}
-          {fareData.demand_conditions === "high" &&
-            `Demanda del servicio: alta`}
+          <div className="climate">
+            Clima actual
+            {fareData.weather_conditions === "sunny" && <img alt="sunny-weather" src={sunnyWeather} />}
+            {fareData.weather_conditions === "rainy" && <img alt="rainy-weather" src={rainyWeather} />}
+            {fareData.weather_conditions === "snowy" && <img alt="snowy-weather" src={snowyWeather} />}
+          </div>
+
+          <div>
+            Demanda del servicio
+            {fareData.demand_conditions === "low" && <img alt="low-demand" src={lowDemand}/>}
+            {fareData.demand_conditions === "regular" &&
+              <img alt="medium-demand" src={mediumDemand} />}
+            {fareData.demand_conditions === "high" &&
+              <img alt="high-demand" src={highDemand} />}
+          </div>
         </div>
       ) : null}
       {data ? (
@@ -142,6 +133,7 @@ function HomeBody() {
           <Comparator
             uberData={uberData}
             cabifyData={cabifyData}
+            taxiData={taxiData}
             distance={distance}
             time={tripDuration}
 

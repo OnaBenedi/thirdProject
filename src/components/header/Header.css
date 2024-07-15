@@ -19,3 +19,13 @@
     }
   }
 }
+
+@media (max-width: 429px){
+  .header{
+    width: 100vw;
+    & .header-img-logo{
+      width: 79vw;
+      height: 8vh;
+    }
+  }
+}

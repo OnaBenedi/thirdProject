@@ -1,5 +1,6 @@
 let uberValue;
 let cabifyValue;
+let taxiValue;
 
 let weatherPrice;
 let weatherCondition;
@@ -12,6 +13,7 @@ let cabifyFinalValue;
 
 let cabifyPickUpTime;
 let uberPickUpTime;
+let taxiPickUpTime;
 //"api" uber/cabify pedirle el precio km, la app es la que te hace el calculo del precio del servicio (precio km, precio clima y precio demanda)
 //app calcula precio final en si usando distancia, tiempo, precio servicio
 function calculateKMPrice() {
@@ -45,6 +47,9 @@ function calculateKMPrice() {
 
   let cabifyKmFinalPrice = finalPrice(1, 2);
   cabifyValue = Math.round(cabifyKmFinalPrice * factor) / factor;
+
+  let taxiKmFinalPrice = finalPrice(1, 3)
+  taxiValue = Math.round(taxiKmFinalPrice * factor) / factor;
 }
 
 function calculateClimatePrice() {
@@ -101,6 +106,7 @@ function calculatePickUpTime() {
   }
   uberPickUpTime = randomPickUpTime(1, 20);
   cabifyPickUpTime = randomPickUpTime(1, 20);
+  taxiPickUpTime = randomPickUpTime(1, 20)
 }
 
 //exportar como modulo!! coger desde home, useEffect desde home
@@ -129,6 +135,15 @@ export function main() {
     pickup_estimate: cabifyPickUpTime, //crear tiempo aleatorio recogida
   };
 
+  const taxiDummy = {
+    fare: {
+      value: taxiValue,
+      display: `${taxiValue}€`,
+      currency_code: "EUR"
+    },
+    pickup_estimate: taxiPickUpTime
+  }
+
   const fareDummy = {
     weather_conditions: weatherCondition,
     demand_conditions: demandCondition,
@@ -137,17 +152,18 @@ export function main() {
   return {
     uberDummy,
     cabifyDummy,
+    taxiDummy,
     fareDummy,
   };
 }
 
 export function calculateTripPrice(companyPrice, distance) {
-  //+((price / listprice).toFixed(2)) 
+  //+((price / listprice).toFixed(2))
   //como redondear dos decimales
 
   const finalTripPriceUnrounded =  companyPrice*distance
   const finalTripPrice =  +((finalTripPriceUnrounded).toFixed(2))
-  
+
   //((Math.round(companyPrice * distance))* 100) / 100;
   return {
     finalTripPrice,

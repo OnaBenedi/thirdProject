@@ -11,15 +11,24 @@
   border: 1px solid #ccc;
   border-radius: 10px;
   cursor: pointer;
+  height: 40vh;
+  & label {
+    & img {
+      width: 15vw;
+      height: auto;
+      padding: 4%;
+    }
+  }
 }
 
 .option img {
   width: 100%;
-  border-radius: 10px;
 }
 
-.ride-text{
+.ride-text {
   padding-bottom: 10%;
+  display: flex;
+  flex-direction: column;
 }
 
 .select-button {
@@ -45,4 +54,30 @@
 .radio-option {
   color: #000;
   padding-left: 10px;
+}
+
+
+@media (max-width: 429px){
+  .duracion-comparator{
+    margin-top: 5%;
+    font-size: 24px;
+  }
+  .comparator{
+    flex-direction: column;
+  }
+  .option{
+    height: 43vh;
+    & label {
+      & img{
+        padding: 0%;
+        width: 25vw;
+        margin-top: 4%;
+      }
+    }
+  }
+
+  .ride-text{
+    font-size: 24px;
+    text-align: center;
+  }
 }
