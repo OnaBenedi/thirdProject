@@ -4,18 +4,23 @@
 
 .Login {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
   width: 100vw;
-  background-color: #f5f5f5;
+  background-image: url("../../assets/fence-1869401_1920.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
 .container {
   display: flex;
-  width: 800px;
+  width: 80%; 
+  max-width: 800px; 
   height: 500px;
-  background-color: white;
+  margin-top: auto;
+  background-color: #E2E8E6;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -27,7 +32,7 @@ h2 {
 .left {
   flex: 1;
   background-color: #6BBAA7;
-  color: white;
+  color: #E2E8E6;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,7 +51,7 @@ h2 {
   width: 150px;
   border: none;
   border-radius: 50px;
-  background-color: white;
+  background-color: #E2E8E6;
   color: #6BBAA7;
   cursor: pointer;
 }
@@ -69,12 +74,13 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 80%;
+  width: 100%; 
 }
 
 .login-input {
   margin-bottom: 10px;
-  width: 350px;
+  width: 100%; 
+  max-width: 350px; 
   padding: 10px;
   border: none;
   border-radius: 10px;
@@ -89,7 +95,8 @@ form {
 .loginButton {
   padding: 10px;
   margin-top: 20px;
-  width: 150px;
+  width: 100%; 
+  max-width: 150px; 
   border: none;
   border-radius: 50px;
   background-color: #6BBAA7;
@@ -107,3 +114,52 @@ form {
   color: #6BBAA7;
   text-decoration: underline;
 }
+
+.footer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
+  background-color: #E2E8E6;
+}
+
+.footer-content {
+  text-align: center;
+}
+
+
+@media (max-width: 768px) {
+  .container {
+    width: 90%; 
+  }
+}
+
+
+@media (max-width: 480px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    width: 100%; 
+    border-radius: 0; 
+    box-shadow: none; 
+  }
+
+  .left, .right {
+    border-radius: 0; 
+  }
+
+  .signInButton, .loginButton {
+    width: 100%; 
+    max-width: 100%; 
+  }
+
+  .login-input {
+    max-width: 100%; 
+  }
+}
+
+
+
+
+

@@ -18,6 +18,12 @@ function Login() {
           <a href="#" className="resetPassword">Resetear contraseña</a>
         </div>
       </div>
+      <footer className="footer">
+      <div className="footer-content">
+        <p>© 2024 HopOn! Todos los derechos reservados.</p>
+        <p>Desarrollado por Ona Benedí, María Bona, Christopher Jiménez</p>
+      </div>
+    </footer>
     </div>
   );
 }
