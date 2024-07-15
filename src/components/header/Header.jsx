@@ -1,5 +1,4 @@
 import headerLogo from "../../assets/logos/header-finished.png"
-import burguerMenuIcon from "../../assets/svg/burger-menu.svg"
 import "./Header.css"
 import HamburguerMenu from "./hamburguer-menu/HamburguerMenu";
 

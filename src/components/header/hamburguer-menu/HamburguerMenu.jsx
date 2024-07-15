@@ -31,8 +31,8 @@ function HamburguerMenu() {
           <ul>
             <li><a href="/home">Inicio</a></li>
             <li><a href="/profile">Perfil</a></li>
-            <li><a href="/about">Viajes</a></li>
-            <li><a href="/contact">Ajustes</a></li>
+            <li><a href="/trips">Viajes</a></li>
+            <li><a href="/config">Ajustes</a></li>
           </ul>
         </nav>
       )}
