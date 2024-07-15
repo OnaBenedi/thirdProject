@@ -139,6 +139,12 @@ function HomeBody() {
           <Comparator uberData={uberData} cabifyData = {cabifyData} distance = {distance} time = {tripDuration} />
         </div>
       ) : null}
+      <footer className="footer">
+      <div className="footer-content">
+        <p>© 2024 HopOn! Todos los derechos reservados.</p>
+        <p>Desarrollado por Ona Benedí, María Bona, Chritopher Jiménez</p>
+      </div>
+    </footer>
     </div>
   );
 }
