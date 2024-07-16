@@ -2,7 +2,7 @@ import "./TripsBody.css"
 
 function TripsBody() {
   return (
-    <div>
+    <div className="trips-container">
       <h1>Madrid</h1>
       <h3>Restaurantes</h3>
       <ul>
