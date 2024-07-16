@@ -1,4 +1,3 @@
-/* Estilos generales */
 .config-container {
     display: flex;
     flex-direction: column;
@@ -36,7 +35,7 @@
     cursor: pointer;
   }
   
-  /* Media queries para tablets */
+
   @media (max-width: 768px) {
     .config-container {
       max-width: 100%;
@@ -48,7 +47,7 @@
     }
   }
   
-  /* Media queries para móviles */
+
   @media (max-width: 480px) {
     .config-container {
       padding: 10px;
