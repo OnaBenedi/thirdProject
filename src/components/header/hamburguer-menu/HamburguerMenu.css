@@ -69,6 +69,27 @@
 .close-button span {
   font-size: 24px;
 }
+@media (max-width: 768px){
+
+  .menu.open {
+    left: 0;
+    width: 100vw;
+  }
+  .main-logo-small {
+    height: 20vh;
+    margin-left: 26vw;
+  }
+  .close-button{
+    font-size: 72px;
+    left: 76vw;
+    top: -2vh;
+  }
+  .close-button span {
+    font-size: 72px;
+    left: 64vw;
+    top: -2vh;
+  }
+}
 
 @media (max-width: 429px) {
   .hamburger-icon {

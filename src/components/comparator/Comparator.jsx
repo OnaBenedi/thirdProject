@@ -53,7 +53,7 @@ function Comparator({ uberData, cabifyData, taxiData, distance, time }) {
         </label>
         <div className="ride-text">
           {taxiPrice
-            ?<div><p>Precio de tu viaje con un taxi: <strong>{taxiPrice.finalTripPrice} {taxiData.fare.currency_code}</strong></p>
+            ?<div><p className="taxi-text">Precio de tu viaje con un taxi: <strong>{taxiPrice.finalTripPrice} {taxiData.fare.currency_code}</strong></p>
             <p> El conductor llegará en {taxiData.pickup_estimate} minutos</p></div>
             : null}
         </div>

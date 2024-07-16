@@ -12,6 +12,9 @@
     height: 25vh;
     width: 100vw;
   }
+  & .header-mobile-logo{
+    display: none;
+  }
   & button{
     height: 10vh;
     & img{
@@ -24,8 +27,29 @@
   .header{
     width: 100vw;
     & .header-img-logo{
-      width: 79vw;
-      height: 8vh;
+      display: none;
+    }
+
+    & .header-mobile-logo{
+      display: block;
+      height: 10vh;
     }
   }
+
+}
+
+@media (max-width: 768px){
+  .header{
+    width: 100vw;
+    & .header-img-logo{
+      display: none;
+    }
+
+    & .header-mobile-logo{
+      display: block;
+      height: 10vh;
+      margin: 3%;
+    }
+  }
+
 }
