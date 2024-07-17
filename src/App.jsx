@@ -5,6 +5,7 @@ import UserProfile from "./components/user-profile/UserProfile";
 import Login from "./components/pages/Login";
 import Signup from "./components/pages/Signup.jsx"
 import Configuracion from "./components/configuracion/Configuracion.jsx";
+import Trips from "./components/trips/Trips.jsx";
 
 
 function App() {
@@ -35,8 +36,8 @@ function App() {
         <Route path="profile" element={<UserProfile/>}/>
         <Route path="/" element={<Login/>}/>
         <Route path="signup" element={<Signup/>}/>
-        <Route path="/config" element={<Configuracion/>}/>
-
+        <Route path="config" element={<Configuracion/>}/>
+        <Route path="trips" element={<Trips/>}/>
         </Routes>
     </BrowserRouter>
   );
