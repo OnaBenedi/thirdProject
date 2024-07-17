@@ -1,4 +1,5 @@
 .trips-container{
+    height: 100vh;
     position: relative;
     top: 25vh;
     display: flex;
@@ -13,3 +14,4 @@ ul{
 li{
     list-style: none;
 }
+

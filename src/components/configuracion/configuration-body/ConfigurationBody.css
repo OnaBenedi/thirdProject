@@ -1,4 +1,5 @@
 .config-container {
+    height: 100vh;
     position: relative;
     top: 25vh;
     display: flex;
@@ -36,7 +37,6 @@
     font-size: 16px;
     cursor: pointer;
   }
-  
 
   @media (max-width: 768px) {
     .config-container {
