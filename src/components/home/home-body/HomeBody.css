@@ -29,15 +29,15 @@
   }
 }
 
+
 .search-bar {
   margin: 20px 0;
   width: 56.25rem;
 }
 
 .search-bar .title {
-  background-color: #6C648B;
+  background-color: #6BBAA7;
   border-radius: 10px;
-  color: rgb(224, 221, 221);
 }
 
 .search-bar .title h2 {
@@ -55,7 +55,7 @@
 .search-bar .line-space {
   width: 1px;
   height: 20px;
-  background: #dadada;
+  background: #DADADA;
 }
 
 .search-input {
@@ -65,7 +65,6 @@
   background-color: #fff;
   border: none;
   color: #000;
-  border-radius: 10px;
 }
 
 .search-input::placeholder {
@@ -85,82 +84,3 @@
   cursor: pointer;
 }
 
-.fare-data {
-  display: flex;
-  gap: 5%;
-  font-size: 16px;
-  & div {
-    display: flex;
-    flex-direction: column;
-    gap: 5%;
-    width: 9vw;
-    & img {
-      height: 3vh;
-    }
-  }
-}
-
-@media (max-width: 768px){
-  .home-body {
-    width: 100vw;
-    & form {
-      display: flex;
-      flex-direction: column;
-    }
-  }
-
-  .search-bar {
-    width: 90vw;
-    height: 32vh;
-  }
-  .search-bar .search {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .search-input {
-    width: 75%;
-    border-radius: 10px;
-    background-color: #dadada;
-  }
-  .fare-data {
-    width: 100%;
-    justify-content: center;
-    margin-bottom: 5%;
-    & div {
-      width: 40%;
-    }
-  }
-}
-
-@media (max-width: 429px) {
-  .home-body {
-    width: 100vw;
-    & form {
-      display: flex;
-      flex-direction: column;
-    }
-  }
-  .search-bar {
-    width: 90vw;
-    height: 32vh;
-  }
-  .search-bar .search {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .search-input {
-    width: 75%;
-    border-radius: 10px;
-    background-color: #dadada;
-  }
-  .fare-data {
-    width: 100%;
-    justify-content: center;
-    margin-bottom: 5%;
-    & div {
-      width: 40%;
-    }
-  }
-}

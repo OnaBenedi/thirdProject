@@ -16,11 +16,10 @@
   flex-direction: column;
   margin-inline-start: 20%;
   margin-block-start: 5%;
-}
-
-.profile-left .user-icon {
-  border: 1px solid black;
-  border-radius: 50%;
+  & .user-icon{
+    border: 1px solid black;
+    border-radius: 50%;
+  }
 }
 
 .profile-right {
@@ -32,7 +31,7 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  align-items: flex-start;
+  align-items: start;
   margin-inline-start: 20%;
   margin-block-start: 5%;
   margin-block-end: 10%;
@@ -45,60 +44,6 @@
   text-decoration: none;
   font-size: 40px;
 }
-
 a {
   font-size: 30px;
 }
-
-
-@media (max-width: 768px) {
-  .profile-body-up {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .profile-left {
-    margin-inline-start: 0;
-    align-items: center;
-  }
-
-  .profile-right {
-    margin-inline-start: 0;
-    align-items: center;
-    text-align: center; 
-  }
-
-  .profile-links {
-    align-items: center;
-    margin-inline-start: 0;
-    text-align: center; 
-  }
-
-  .profile-links a {
-    font-size: 30px;
-  }
-}
-
-
-@media (max-width: 480px) {
-  .profile-left .user-icon {
-    width: 80px;
-    height: 80px;
-  }
-
-  .profile-links a {
-    font-size: 20px;
-  }
-
-  a {
-    font-size: 20px;
-  }
-
-  .profile-left, .profile-right, .profile-links {
-    margin-inline-start: 0;
-    align-items: center;
-    text-align: center;
-  }
-}
-

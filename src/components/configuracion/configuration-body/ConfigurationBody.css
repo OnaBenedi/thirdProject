@@ -1,0 +1,63 @@
+.config-container {
+    position: relative;
+    top: 25vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .input-container {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+  }
+  
+  input {
+    padding: 8px;
+    font-size: 16px;
+    margin-top: 5px;
+  }
+  
+  button {
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+
+  @media (max-width: 768px) {
+    .config-container {
+      max-width: 100%;
+      padding: 15px;
+    }
+  
+    input, button {
+      font-size: 14px;
+    }
+  }
+  
+
+  @media (max-width: 480px) {
+    .config-container {
+      padding: 10px;
+    }
+  
+    input, button {
+      font-size: 12px;
+    }
+  }
+  
+  

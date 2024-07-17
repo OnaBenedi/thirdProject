@@ -89,6 +89,7 @@ function HomeBody() {
             className="search-input"
           />
           <div className="line-space"></div>
+          <div className="line-space"></div>
           <label htmlFor="destination">Destino:</label>
           <input
             type="text"
@@ -140,6 +141,12 @@ function HomeBody() {
           />
         </div>
       ) : null}
+      <footer className="footer">
+      <div className="footer-content">
+        <p>© 2024 HopOn! Todos los derechos reservados.</p>
+        <p>Desarrollado por Ona Benedí, María Bona, Chritopher Jiménez</p>
+      </div>
+    </footer>
     </div>
   );
 }

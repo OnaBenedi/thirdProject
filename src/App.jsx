@@ -3,7 +3,9 @@ import Home from "./components/home/Home";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import UserProfile from "./components/user-profile/UserProfile";
 import Login from "./components/pages/Login";
-//dotenv? para almacenar api key
+import Signup from "./components/pages/Signup.jsx"
+import Configuracion from "./components/configuracion/Configuracion.jsx";
+
 
 function App() {
   // PRUEBAS USUARIOS
@@ -32,6 +34,9 @@ function App() {
         <Route path="home" element={<Home/>}/>
         <Route path="profile" element={<UserProfile/>}/>
         <Route path="/" element={<Login/>}/>
+        <Route path="signup" element={<Signup/>}/>
+        <Route path="/config" element={<Configuracion/>}/>
+
         </Routes>
     </BrowserRouter>
   );
