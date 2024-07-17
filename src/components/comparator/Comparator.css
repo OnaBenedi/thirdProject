@@ -5,6 +5,9 @@
 }
 
 .option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 10px;
   margin: 10px;
   position: relative;
@@ -13,6 +16,7 @@
   cursor: pointer;
   height: 23vh;
   width: 25vw;
+  gap: 5%;
   & label {
     & img {
       width: auto;

@@ -1,7 +1,4 @@
 .home-body {
-  height: 100%;
-  position: relative;
-  top: 25vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -37,7 +34,7 @@
 }
 
 .search-bar .title {
-  background-color: #6BBAA7;
+  background-color: #81B2A6;
   border-radius: 10px;
 }
 

@@ -5,7 +5,7 @@ function ConfigurationBody() {
     e.prevent.default();
   }
   return (
-    <div className="config-container">
+    <div className="config-container" >
       <h2>Ajustes</h2>
       <form onSubmit={handleUpdate}>
         <div className="input-container">
