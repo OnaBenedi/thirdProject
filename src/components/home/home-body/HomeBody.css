@@ -1,5 +1,4 @@
 .home-body {
-  position: relative;
   top: 25vh;
   display: flex;
   flex-direction: column;
@@ -84,7 +83,20 @@
   cursor: pointer;
 }
 
-
+.fare-data {
+  display: flex;
+  gap: 5%;
+  font-size: 16px;
+  & div {
+    display: flex;
+    flex-direction: column;
+    gap: 5%;
+    width: 9vw;
+    & img {
+      height: 3vh;
+    }
+  }
+}
 @media (max-width: 768px){
   .home-body {
     width: 100vw;
