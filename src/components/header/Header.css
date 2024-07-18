@@ -1,0 +1,20 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #6BBAA7;
+  width: 100%;
+  margin-left: 0;
+  padding: 0 5%;
+
+  & .header-img-logo {
+    height: 25vh;
+    width: 100vw;
+  }
+  & button{
+    height: 10vh;
+    & img{
+        height: 100%;
+    }
+  }
+}

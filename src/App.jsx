@@ -1,12 +1,14 @@
-import './App.css'
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import Login from './components/pages/Login.jsx'
-import Home from './components/pages/Home.jsx'
-import Cookies from 'js-cookie'
+import "./App.css";
+import Home from "./components/home/Home";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import UserProfile from "./components/user-profile/UserProfile";
+import Login from "./components/pages/Login";
+import Signup from "./components/pages/Signup.jsx"
+
 
 function App() {
-  // PRUEBAS USUARIOS 
-  
+  // PRUEBAS USUARIOS
+
   // const [user, setUser] = useState(null);
   // const [email, setEmail] = useState('');
   // const [password, setPassword] = useState('');
@@ -28,11 +30,13 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Login></Login>}></Route>
-        <Route path='/home' element={<Home></Home>}></Route>
-      </Routes>
+        <Route path="home" element={<Home/>}/>
+        <Route path="profile" element={<UserProfile/>}/>
+        <Route path="/" element={<Login/>}/>
+        <Route path="signup" element={<Signup/>}/>
+        </Routes>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;

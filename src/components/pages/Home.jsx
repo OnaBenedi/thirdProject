@@ -43,7 +43,7 @@ function Home() {
           <div class="option">
             <input type="radio" name="option3" id="option1" />
             <label className='radio-option' htmlFor="option1">Opción 3</label>
-            
+
             <img className='image-option' src="src\assets\img\map-placeholder.webp" alt="Opción 3" />
             <button class="select-button">Select</button>
           </div>

@@ -1,17 +1,20 @@
 import "./Login.css";
 import { useState } from "react";
 import { register, login } from "../../../user-info/login";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../config/firebase";
-import { useNavigate } from 'react-router-dom';
+import { auth, db } from "../../config/firebase";
+import { createUserWithEmailAndPassword, signOut, } from "firebase/auth";
+import { collection, addDoc } from "firebase/firestore";
 
-function Login() {
+function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isRegister, setIsRegister] = useState(false);
   const [token, setToken] = useState(null);
   const [message, setMessage] = useState("");
-  const navigate = useNavigate();
+  const [name, setName] = useState("");
+  const [surname, setSurname] = useState("");
+
+  const usersCollectionRef = collection(db, "users");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -34,7 +37,6 @@ function Login() {
     } else {
       try {
         if (emailTrue && passwordTrue) {
-          navigate("/home");
           const token = await login(email, password);
           setToken(token);
           setMessage("Logged in successfully!");
@@ -54,26 +56,56 @@ function Login() {
 
   const signIn = async () => {
     try {
-      await signInWithEmailAndPassword(auth, email, password);
-      console.log("Log in exitoso.")
-      console.log(auth?.currentUser?.email)
+      await createUserWithEmailAndPassword(auth, email, password);
     } catch (err) {
       console.error(err);
     }
   };
+
+  const logout = async () => {
+    try {
+      await signOut(auth);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const onSubmitUser = async () => {
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+      await addDoc(usersCollectionRef, {
+        nombre: name,
+        apellido: surname,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  console.log(auth);
 
   return (
     <div className="Login">
       <div className="container">
         <div className="left">
           <h2>Crear cuenta</h2>
-          <button className="signInButton" onClick={() => navigate("/signup")}>
+          <button className="signInButton" onClick={toggleRegister}>
             Registrarse
           </button>
         </div>
         <div className="right">
           <h2>Bienvenido</h2>
           <form onSubmit={handleSubmit}>
+            <input
+              placeholder="Nombre"
+              type="text"
+              onChange={(e) => setName(e.target.value)}
+            />
+            <input
+              placeholder="Apellido"
+              type="text"
+              onChange={(e) => setSurname(e.target.value)}
+            />
             <input
               className="login-input"
               type="email"
@@ -91,10 +123,15 @@ function Login() {
             {isRegister ? (
               <button type="submit">Regístrate</button>
             ) : (
-              <button type="submit" className="loginButton" onClick={signIn}>
+              <button
+                type="submit"
+                className="loginButton"
+                onClick={onSubmitUser}
+              >
                 Iniciar Sesión
               </button>
             )}
+            <button onClick={logout}>Salir</button>
           </form>
 
           {message && (
@@ -112,14 +149,8 @@ function Login() {
           </a>
         </div>
       </div>
-      <footer className="footer">
-        <div className="footer-content">
-          <p>© 2024 HopOn! Todos los derechos reservados.</p>
-          <p><span>Desarro</span>llado por Ona Benedí, María Bona, Christopher Jiménez</p>
-        </div>
-      </footer>
     </div>
   );
 }
 
-export default Login;
+export default Signup;
