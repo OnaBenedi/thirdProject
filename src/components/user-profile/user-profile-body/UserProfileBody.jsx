@@ -1,25 +1,8 @@
 import "./UserProfileBody.css"
 import dummyIcon from "../../../assets/logos/rabbit-icon.png"
-import { auth, db } from "../../../config/firebase.js";
-import { getFirestore, collection, query, where, getDoc } from "firebase/firestore";
 
-
-
-async function getUserInfo(email) {
-  try {
-    const usersRef = collection(db, "users");
-    const q = query(usersRef, where("email", "==", email))
-    const querySnap = await getDoc(q);
-    console.log(querySnap);
-  } catch(err) {
-    console.error(err)
-  }
-}
 
 function UserProfileBody() {
-  const email = auth?.currentUser?.email;
-  getUserInfo(email)
-
   return (
     <div className="user-profile-body">
       <div className="profile-body-up">
@@ -30,7 +13,7 @@ function UserProfileBody() {
         <div className="profile-right">
           <div className="profile-info">
             <h2>Nombre Apellido</h2>
-            <p>Correo Electrónico: {email}</p>
+            <p>Correo Electrónico: ejemplo@correo.com</p>
             <p>Teléfono: +1234567890</p>
           </div>
         </div>
