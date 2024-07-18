@@ -42,3 +42,8 @@
 a {
   font-size: 30px;
 }
+
+#link1:hover, #link2:hover, #link3:hover{
+
+  color: red;
+}

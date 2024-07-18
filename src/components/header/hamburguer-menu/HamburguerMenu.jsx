@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import './HamburguerMenu.css';
-import mainLogo from "../../../assets/logos/main-logo.png"
+import React, { useState } from "react";
+import "./HamburguerMenu.css";
+import mainLogo from "../../../assets/logos/main-logo.png";
+import { Link } from "react-router-dom";
 
 function HamburguerMenu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,16 +24,24 @@ function HamburguerMenu() {
         </div>
       )}
       {isOpen && (
-        <nav className={`menu ${isOpen ? 'open' : ''}`}>
-        <img src={mainLogo} alt="logo-small" className="main-logo-small"/> 
+        <nav className={`menu ${isOpen ? "open" : ""}`}>
+          <img src={mainLogo} alt="logo-small" className="main-logo-small" />
           <button className="close-button" onClick={closeMenu}>
             <span>&times;</span>
           </button>
           <ul>
-            <li><a href="/home">Inicio</a></li>
-            <li><a href="/profile">Perfil</a></li>
-            <li><a href="/trips">Viajes</a></li>
-            <li><a href="/config">Ajustes</a></li>
+            <li>
+              <Link to={"/home"}>Inicio</Link>
+            </li>
+            <li>
+              <Link to={"/profile"}>Perfil</Link>
+            </li>
+            <li>
+              <Link to={"/trips"}>Viajes</Link>
+            </li>
+            <li>
+              <Link to={"/config"}>Ajustes</Link>
+            </li>
           </ul>
         </nav>
       )}
@@ -41,6 +50,3 @@ function HamburguerMenu() {
 }
 
 export default HamburguerMenu;
-
-
-
