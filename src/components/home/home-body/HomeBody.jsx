@@ -80,13 +80,14 @@ function HomeBody() {
           <h2>Bienvenido a HopOn!</h2>
         </div>
         <form onSubmit={handleSubmit} className="search">
-          <label htmlFor="from">Origen:</label>
+          <label htmlFor="origin" >Origen:</label>
           <input
             type="text"
             name="from"
             value={from}
             onChange={handleOriginTrip}
             className="search-input"
+            id="origin"
           />
           <div className="line-space"></div>
           <div className="line-space"></div>
@@ -97,6 +98,7 @@ function HomeBody() {
             value={destination}
             onChange={handleDestinationTrip}
             className="search-input"
+            id="destination"
           />
           <button className="search-button">🔍</button>
         </form>

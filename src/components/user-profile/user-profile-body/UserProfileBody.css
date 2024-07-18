@@ -46,3 +46,54 @@ a {
 #link1:hover, #link2:hover, #link3:hover{
   color: #E4CC84;
 }
+
+@media (max-width: 768px) {
+  .profile-body-up {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .profile-left {
+    margin-inline-start: 0;
+    align-items: center;
+  }
+
+  .profile-right {
+    margin-inline-start: 0;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-links {
+    align-items: center;
+    margin-inline-start: 0;
+    text-align: center;
+  }
+
+  .profile-links a {
+    font-size: 30px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .profile-left .user-icon {
+    width: 80px;
+    height: 80px;
+  }
+
+  .profile-links a {
+    font-size: 20px;
+  }
+
+  a {
+    font-size: 20px;
+  }
+
+  .profile-left, .profile-right, .profile-links {
+    margin-inline-start: 0;
+    align-items: center;
+    text-align: center;
+  }
+}

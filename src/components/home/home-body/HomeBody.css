@@ -64,6 +64,7 @@
   background-color: #fff;
   border: none;
   color: #000;
+  border-radius: 10px;
 }
 
 .search-input::placeholder {
@@ -96,6 +97,10 @@
       height: 3vh;
     }
   }
+}
+
+.map-container{
+  border-radius: 10px;
 }
 
 @media (max-width: 768px){

@@ -122,6 +122,7 @@ export function main() {
       value: uberFinalValue,
       display: `${uberFinalValue}€`,
       currency_code: "EUR",
+      company: "uber"
     },
     pickup_estimate: uberPickUpTime, //crear tiempo aleatorio recogida
   };
@@ -131,6 +132,7 @@ export function main() {
       value: cabifyFinalValue,
       display: `${cabifyFinalValue}€`,
       currency_code: "EUR",
+      company: "cabify"
     },
     pickup_estimate: cabifyPickUpTime, //crear tiempo aleatorio recogida
   };
@@ -139,7 +141,8 @@ export function main() {
     fare: {
       value: taxiValue,
       display: `${taxiValue}€`,
-      currency_code: "EUR"
+      currency_code: "EUR",
+      company: "taxi"
     },
     pickup_estimate: taxiPickUpTime
   }

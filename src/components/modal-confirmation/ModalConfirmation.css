@@ -1,0 +1,25 @@
+.modal-wrapper{
+    background-color: #E2E8E6;
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: 60vh;
+    width: 60vw;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 38px;
+    & .driver {
+        border-radius: 50%;
+        border: 2px solid #E4CC84;
+    }
+    & .modal-text{
+        display: flex;
+        flex-direction: column;
+    }
+}

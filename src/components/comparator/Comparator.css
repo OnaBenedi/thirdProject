@@ -11,19 +11,19 @@
   padding: 10px;
   margin: 10px;
   position: relative;
-  border: 1px solid #E4CC84;
+  border: 2px solid #E4CC84;
   border-radius: 10px;
   cursor: pointer;
   height: 23vh;
   width: 25vw;
   gap: 5%;
-  & label {
+
     & img {
       width: auto;
       height: 7vh;
       padding: 4%;
     }
-  }
+
 }
 
 .option img {

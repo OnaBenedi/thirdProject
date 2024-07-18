@@ -30,7 +30,7 @@ function Maps({ origin, destination }) {
       language={"es"}
       onLoad={() => console.log("Maps API has loaded.")}
     >
-      <div style={{ height: "75vh", width: "75vw" }}>
+      <div style={{ height: "75vh", width: "75vw", borderRadius: "10px" }}>
         <Map
           {...viewState}
           onCameraChanged={(ev: MapCameraChangedEvent) =>
@@ -45,6 +45,7 @@ function Maps({ origin, destination }) {
           defaultZoom={14}
           mapId={mapId}
           fullscreenControl={false}
+
         >
           <Directions origin={origin} destination={destination} />
         </Map>
