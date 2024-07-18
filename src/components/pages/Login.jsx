@@ -54,26 +54,20 @@ function Login() {
 
   const signIn = async () => {
     try {
-      await signInWithEmailAndPassword(auth, email, password).then(
-        (userCredential) => {
-          // Signed in
-          const user = userCredential.user;
-          // ...
-        }
-      );
+      await signInWithEmailAndPassword(auth, email, password);
+      console.log("Log in exitoso.")
+      console.log(auth?.currentUser?.email)
     } catch (err) {
       console.error(err);
     }
   };
-
-  console.log(auth?.currentUser);
 
   return (
     <div className="Login">
       <div className="container">
         <div className="left">
           <h2>Crear cuenta</h2>
-          <button className="signInButton" onClick={toggleRegister}>
+          <button className="signInButton" onClick={() => navigate("/signup")}>
             Registrarse
           </button>
         </div>
@@ -119,11 +113,11 @@ function Login() {
         </div>
       </div>
       <footer className="footer">
-      <div className="footer-content">
-        <p>© 2024 HopOn! Todos los derechos reservados.</p>
-        <p>Desarrollado por Ona Benedí, María Bona, Chritopher Jiménez</p>
-      </div>
-    </footer>
+        <div className="footer-content">
+          <p>© 2024 HopOn! Todos los derechos reservados.</p>
+          <p><span>Desarro</span>llado por Ona Benedí, María Bona, Christopher Jiménez</p>
+        </div>
+      </footer>
     </div>
   );
 }
