@@ -19,9 +19,9 @@ function UserProfileBody() {
         </div>
       </div>
       <div className="profile-links">
-          <a href="#">Ajustes</a>
-          <a href="#">Método de Pago</a>
-          <a href="#">Protección de Datos</a>
+          <a href="#" id="link1">Ajustes</a>
+          <a href="#" id="link2">Método de Pago</a>
+          <a href="#" id="link3">Protección de Datos</a>
         </div>
         <footer className="footer">
       <div className="footer-content">

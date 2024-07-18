@@ -11,7 +11,7 @@
   padding: 10px;
   margin: 10px;
   position: relative;
-  border: 1px solid #ccc;
+  border: 1px solid #E4CC84;
   border-radius: 10px;
   cursor: pointer;
   height: 23vh;
@@ -44,8 +44,8 @@
   bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
-  background-color: #00b894;
-  color: white;
+  background-color: #E4CC84;
+  color: #213547;
   border: none;
   padding: 10px 20px;
   border-radius: 20px;

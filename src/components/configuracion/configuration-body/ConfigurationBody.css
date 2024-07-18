@@ -35,6 +35,10 @@
     cursor: pointer;
   }
 
+  #button-style{
+    background-color: #E4CC84;
+  }
+
   @media (max-width: 768px) {
     .config-container {
       max-width: 100%;

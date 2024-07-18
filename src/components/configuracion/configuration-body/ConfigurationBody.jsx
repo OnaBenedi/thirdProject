@@ -10,7 +10,7 @@ function ConfigurationBody() {
       <form onSubmit={handleUpdate}>
         <div className="input-container">
           <label>
-            Username:
+            Usuario:
             <input type="text" name="username" />
           </label>
         </div>
@@ -22,11 +22,11 @@ function ConfigurationBody() {
         </div>
         <div className="input-container">
           <label>
-            Password:
+            Contraseña:
             <input type="password" name="password" />
           </label>
         </div>
-        <button type="submit">Update</button>
+        <button type="submit" id="button-style">Actualizar</button>
       </form>
     </div>
   );
