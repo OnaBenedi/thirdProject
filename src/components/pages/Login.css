@@ -137,7 +137,7 @@ form {
 }
 
 
-@media (max-width: 480px) {
+@media (max-width: 429px) {
   .container {
     display: flex;
     flex-direction: column;
