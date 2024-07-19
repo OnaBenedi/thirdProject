@@ -1,4 +1,4 @@
-import "./Login.css";
+import "./Signup.css";
 import { useState } from "react";
 import { register, login } from "../../../user-info/login";
 import { auth, db } from "../../config/firebase";
@@ -97,11 +97,13 @@ function Signup() {
           <h2>Bienvenido</h2>
           <form onSubmit={handleSubmit}>
             <input
+              className="login-input"
               placeholder="Nombre"
               type="text"
               onChange={(e) => setName(e.target.value)}
             />
             <input
+              className="login-input"
               placeholder="Apellido"
               type="text"
               onChange={(e) => setSurname(e.target.value)}
