@@ -4,6 +4,7 @@ import { register, login } from "../../../user-info/login";
 import { auth, db } from "../../config/firebase";
 import { createUserWithEmailAndPassword, signOut, } from "firebase/auth";
 import { collection, addDoc } from "firebase/firestore";
+import Footer from "../footer/Footer.jsx"
 
 function Signup() {
   const [email, setEmail] = useState("");
@@ -85,72 +86,74 @@ function Signup() {
   console.log(auth);
 
   return (
-    <div className="Login">
-      <div className="container">
-        <div className="left">
-          <h2>Crear cuenta</h2>
-          <button className="signInButton" onClick={toggleRegister}>
-            Registrarse
-          </button>
-        </div>
-        <div className="right">
-          <h2>Bienvenido</h2>
-          <form onSubmit={handleSubmit}>
-            <input
-              className="login-input"
-              placeholder="Nombre"
-              type="text"
-              onChange={(e) => setName(e.target.value)}
-            />
-            <input
-              className="login-input"
-              placeholder="Apellido"
-              type="text"
-              onChange={(e) => setSurname(e.target.value)}
-            />
-            <input
-              className="login-input"
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={(event) => setEmail(event.target.value)}
-            />
-            <input
-              className="login-input"
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(event) => setPassword(event.target.value)}
-            />
-            {isRegister ? (
-              <button type="submit">Regístrate</button>
-            ) : (
-              <button
-                type="submit"
-                className="loginButton"
-                onClick={onSubmitUser}
+    <div style={{display: "flex", flexDirection: "column", gap: "25%"}}>
+      <div className="Login">
+        <div className="container-signup">
+          <div className="left">
+            <h2>Crear cuenta</h2>
+            <button className="signInButton" onClick={toggleRegister}>
+              Registrarse
+            </button>
+          </div>
+          <div className="right">
+            <h2>Bienvenido</h2>
+            <form onSubmit={handleSubmit}>
+              <input
+                className="login-input"
+                placeholder="Nombre"
+                type="text"
+                onChange={(e) => setName(e.target.value)}
+              />
+              <input
+                className="login-input"
+                placeholder="Apellido"
+                type="text"
+                onChange={(e) => setSurname(e.target.value)}
+              />
+              <input
+                className="login-input"
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
+              />
+              <input
+                className="login-input"
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
+              />
+              {isRegister ? (
+                <button type="submit">Regístrate</button>
+              ) : (
+                <button
+                  type="submit"
+                  className="loginButton"
+                  onClick={onSubmitUser}
+                >
+                  Iniciar Sesión
+                </button>
+              )}
+            </form>
+            {message && (
+              <div
+                className={
+                  message.includes("Error") ? "error-message" : "success-message"
+                }
               >
-                Iniciar Sesión
-              </button>
+                {message}
+              </div>
             )}
-            <button onClick={logout}>Salir</button>
-          </form>
-
-          {message && (
-            <div
-              className={
-                message.includes("Error") ? "error-message" : "success-message"
-              }
-            >
-              {message}
-            </div>
-          )}
-          {token && <div>Logged in with token: {token}</div>}
-          <a href="#" className="resetPassword">
-            Resetear contraseña
-          </a>
+            {token && <div>Logged in with token: {token}</div>}
+            <a href="#" className="resetPassword">
+              Resetear contraseña
+            </a>
+          </div>
         </div>
+
       </div>
+      <Footer/>
     </div>
   );
 }

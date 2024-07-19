@@ -87,7 +87,7 @@ function HomeBody() {
             value={from}
             onChange={handleOriginTrip}
             className="search-input"
-            id="origin"
+            id="origin" placeholder="Inserte su origen"
           />
           <div className="line-space"></div>
           <div className="line-space"></div>
@@ -98,7 +98,7 @@ function HomeBody() {
             value={destination}
             onChange={handleDestinationTrip}
             className="search-input"
-            id="destination"
+            id="destination" placeholder="Inserte su destino"
           />
           <button className="search-button">🔍</button>
         </form>

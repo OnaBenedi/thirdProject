@@ -21,7 +21,7 @@
   max-width: 800px;
   height: 500px;
   margin-top: auto;
-  background-color: #E2E8E6;
+  background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -133,7 +133,24 @@ form {
 
 @media (max-width: 768px) {
   .container {
-    width: 90%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .left, .right {
+    border-radius: 0;
+  }
+
+  .signInButton, .loginButton {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .login-input {
+    max-width: 100%;
   }
 }
 
