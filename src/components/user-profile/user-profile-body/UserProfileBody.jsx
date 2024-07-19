@@ -12,9 +12,9 @@ function UserProfileBody() {
         </div>
         <div className="profile-right">
           <div className="profile-info">
-            <h2>Nombre Apellido</h2>
-            <p>Correo Electrónico: ejemplo@correo.com</p>
-            <p>Teléfono: +1234567890</p>
+            <h2>Christopher Jiménez</h2>
+            <p>Correo Electrónico: christ.test@gmail.com</p>
+            <p>Teléfono: +34618129617</p>
           </div>
         </div>
       </div>
