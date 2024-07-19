@@ -98,6 +98,7 @@
   }
   
   .resetPassword {
+    font-size: 1rem;
     margin-top: 10px;
     color: #6BBAA7;
     text-decoration: none;
