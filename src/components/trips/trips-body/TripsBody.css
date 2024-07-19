@@ -20,3 +20,10 @@ li{
     list-style: none;
 }
 
+@media (max-width: 429px) {
+ .trips-container{
+   & .trips{
+    flex-direction: column;
+   }
+ }
+}

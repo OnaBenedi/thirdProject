@@ -6,7 +6,7 @@ function ModalConfirmation(props) {
     <div className="modal-wrapper">
       <img src={driverLogo} alt="driver-logo" className="driver" />
       <div className="modal-text">
-        <p>¡Estás de suerte!</p>
+        <p>Calma, nosotros nos ocupamos de todo.</p>
         <p>
           ¡Tu conductor está de camino!
         </p>
