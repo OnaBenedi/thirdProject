@@ -5,9 +5,20 @@
     justify-content: center;
     margin-top: auto;
     background-color: #E2E8E6;
-
   }
 
   .footer-content {
     text-align: center;
+    width: 30vw;
+  }
+
+  .links-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3%;
+  }
+  #linkedin{
+    font-size: 16px;
+    color: rgb(0,0, 0);
   }

@@ -4,6 +4,7 @@ import { register, login } from "../../../user-info/login";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../config/firebase";
 import { useNavigate } from 'react-router-dom';
+import Footer from "../footer/Footer"
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -112,12 +113,7 @@ function Login() {
           </a>
         </div>
       </div>
-      <footer className="footer">
-        <div className="footer-content">
-          <p>© 2024 HopOn! Todos los derechos reservados.</p>
-          <p><span>Desarro</span>llado por Ona Benedí, María Bona, Christopher Jiménez</p>
-        </div>
-      </footer>
+      <Footer/>
     </div>
   );
 }
