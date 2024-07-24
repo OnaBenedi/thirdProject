@@ -48,14 +48,16 @@ function ModalConfirmation({demandConditions, sendDataToParent, favDestination})
           {demandMessage}
         </p>
         <div className="add-favs">
-          <p>Añade este destino a favoritos:</p>
-          <select name="favs" id="fav-trips" onChange={handleFavDestinationCategory}>
-            <option value="none">Selecciona una opción</option>
-            <option value="restaurants" >Restaurantes</option>
-            <option value="hotels">Hotels</option>
-            <option value="stations">Estaciones</option>
-          </select>
-          <button onClick={handleFavDestination}>Añadir</button>
+          <p className="fav-p">Añade este destino a favoritos:</p>
+          <div className="categories-button">
+            <select name="favs" id="fav-trips" onChange={handleFavDestinationCategory}>
+              <option value="none">Selecciona una opción</option>
+              <option value="restaurants" >Restaurantes</option>
+              <option value="hotels">Hotels</option>
+              <option value="stations">Estaciones</option>
+            </select>
+            <button onClick={handleFavDestination} id="add-button">Añadir</button>
+          </div>
         </div>
       </div>
 
