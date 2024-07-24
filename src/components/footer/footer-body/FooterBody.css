@@ -22,3 +22,39 @@
     font-size: 16px;
     color: rgb(0,0, 0);
   }
+
+@media (max-width: 768px) {
+  .footer-content {
+      width: 50vw; 
+  }
+
+  #linkedin {
+      font-size: 14px; 
+  }
+
+  .links-container{
+    gap: 3%;
+  }
+}
+@media (max-width: 429px) {
+  .footer {
+      flex-direction: column; 
+      padding: 10px; 
+  }
+
+  .footer-content {
+      width: 80vw; 
+  }
+
+  .links-container {
+      gap: 3%; 
+  }
+
+  p{
+    font-size: 12px;
+  }
+
+  #linkedin {
+      font-size: 12px; 
+  }
+}
