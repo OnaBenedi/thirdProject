@@ -77,8 +77,8 @@ function HomeBody() {
       destination: destination,
     });
   }
-  
-  //Funcion para manejar el cierre del modal 
+
+  //Funcion para manejar el cierre del modal
   function handlCloseModal () {
     setIsModalVisible(false)
   }
@@ -146,7 +146,7 @@ function HomeBody() {
           destination={originAndDestination.destination}
           className="map-container"
         ></Maps>
-      ) : null}
+      ) : error == "NOT_FOUND" && "No se ha podido geolocalizar tu destino u origen."}
       {data ? (
         <div>
           <Comparator
@@ -161,7 +161,7 @@ function HomeBody() {
         </div>
       ) : null}
 
-      {isModalVisible && <ModalConfirmation demandConditions= {demandConditions} sendDataToParent={handlCloseModal} />}
+      {isModalVisible && <ModalConfirmation demandConditions= {demandConditions} sendDataToParent={handlCloseModal} favDestination={destination} />}
     </div>
   );
 }

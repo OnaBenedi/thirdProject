@@ -104,9 +104,20 @@ function calculatePickUpTime() {
   function randomPickUpTime(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
-  uberPickUpTime = randomPickUpTime(1, 20);
-  cabifyPickUpTime = randomPickUpTime(1, 20);
-  taxiPickUpTime = randomPickUpTime(1, 20)
+  if (demandCondition == "low"){
+    uberPickUpTime = randomPickUpTime(1, 7);
+    cabifyPickUpTime = randomPickUpTime(1, 7);
+    taxiPickUpTime = randomPickUpTime(1, 7)
+  } else if (demandCondition == "regular"){
+    uberPickUpTime = randomPickUpTime(8, 12);
+    cabifyPickUpTime = randomPickUpTime(8, 12);
+    taxiPickUpTime = randomPickUpTime(8, 12)
+  } else if (demandCondition == "high"){
+    uberPickUpTime = randomPickUpTime(13, 20);
+    cabifyPickUpTime = randomPickUpTime(13, 20);
+    taxiPickUpTime = randomPickUpTime(13, 20)
+  }
+
 }
 
 //exportar como modulo!! coger desde home, useEffect desde home

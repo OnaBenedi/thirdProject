@@ -1,23 +1,24 @@
 import "./TripsBody.css"
-import tripData from "../../../data/tripData"
+import tripDataObj from "../../../data/tripData"
+import madridSkyline from "../../../assets/prueba.jpg"
 
 function TripsBody() {
 
-  const restaurantes = tripData.madrid.restaurantes;
-  const hoteles = tripData.madrid.hoteles;
-  const estaciones = tripData.madrid.estaciones;
+  const restaurants = tripDataObj.madrid.restaurants;
+  const hotels = tripDataObj.madrid.hotels;
+  const stations = tripDataObj.madrid.stations;
   return (
     <div className="trips-container"  >
-      Currently under development!
+      <img src={madridSkyline} alt="madrid-img" />
       <h1>Madrid</h1>
       <div className="trips">
 
         <div className="restaurants">
           <h3>Restaurantes</h3>
           <ul>
-            {tripData ? restaurantes.map((restaurante, index)=>{
+            {tripDataObj ? restaurants.map((restaurant, index)=>{
               return <div key={index}>
-                <li>{restaurante}</li>
+                <li>{restaurant}</li>
               </div>
             }) : null}
           </ul>
@@ -25,7 +26,7 @@ function TripsBody() {
         <div className="hotels">
           <h3>Hoteles</h3>
           <ul>
-          {tripData ? hoteles.map((hotel, index)=>{
+          {tripDataObj ? hotels.map((hotel, index)=>{
               return <div key={index}>
                 <li>{hotel}</li>
               </div>
@@ -35,14 +36,15 @@ function TripsBody() {
         <div className="train-stations">
           <h3>Estaciones</h3>
           <ul>
-          {tripData ? estaciones.map((estacion, index)=>{
+          {tripDataObj ? stations.map((station, index)=>{
               return <div key={index}>
-                <li>{estacion}</li>
+                <li>{station}</li>
               </div>
             }) : null}
           </ul>
         </div>
       </div>
+
     </div>
   );
 }

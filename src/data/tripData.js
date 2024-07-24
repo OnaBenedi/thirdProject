@@ -1,22 +1,20 @@
-const tripData = {
+let tripDataObj = {
   madrid: {
-    restaurantes: [
+    restaurants: [
       "Biang Biang Bar",
-      "L'Entrecote Café de París",
-      "Hermanos Vinagre",
-      "El Viajero"
+      "L'Entrecote Café de París"
     ],
-    hoteles : [
+    hotels : [
         "Eurostars Madrid Tower",
-        "Hotel Madrid Gran Via",
         "Hotel Palacio del Retiro"
     ],
-    estaciones: [
+    stations: [
         "Puerta de Atocha-Almudena Grandes",
-        "Chamartín",
         "Principe Pío"
     ]
   },
-};
+}; //hacer que el codigo de error si pides servicio fuera de madrid
+//push por categoria en el array con el destino
+//usar informacion categoria viajes como destino
 
-export default tripData
+export default tripDataObj

@@ -1,8 +1,11 @@
 import "./ModalConfirmation.css";
 import driverLogo from "../../assets/logos/driver.png"
+import { useState } from "react";
+import tripDataObj from "../../data/tripData"
 
-function ModalConfirmation({demandConditions, sendDataToParent}) {
-
+function ModalConfirmation({demandConditions, sendDataToParent, favDestination}) {
+  const [category, setCategory] = useState("");
+  const favDestinationFromInput = favDestination;
   let demandMessage;
   switch(demandConditions){
     case "low":
@@ -18,7 +21,24 @@ function ModalConfirmation({demandConditions, sendDataToParent}) {
       demandMessage = "¡Tu conductor está de camino!"
   }
 
+  function handleFavDestinationCategory (event){
+    const selectedOption = event.target.value
+    //let restaurants = tripDataObj.madrid.restaurants
+   setCategory(selectedOption)
+  }
 
+  function handleFavDestination (){
+    let restaurants = tripDataObj.madrid.restaurants;
+    let hotels = tripDataObj.madrid.hotels;
+    let stations = tripDataObj.madrid.stations;
+    if (category == "restaurants"){
+      restaurants.push(favDestination)
+     } else if (category == "hotels"){
+      hotels.push(favDestination)
+     } else if (category == "stations"){
+      stations.push(favDestination)
+     }
+  }
   return (
     <div className="modal-wrapper">
       <img src={driverLogo} alt="driver-logo" className="driver" />
@@ -27,7 +47,18 @@ function ModalConfirmation({demandConditions, sendDataToParent}) {
         <p>
           {demandMessage}
         </p>
+        <div className="add-favs">
+          <p>Añade este destino a favoritos:</p>
+          <select name="favs" id="fav-trips" onChange={handleFavDestinationCategory}>
+            <option value="none">Selecciona una opción</option>
+            <option value="restaurants" >Restaurantes</option>
+            <option value="hotels">Hotels</option>
+            <option value="stations">Estaciones</option>
+          </select>
+          <button onClick={handleFavDestination}>Añadir</button>
+        </div>
       </div>
+
       <button className="close-button" onClick={sendDataToParent}>
         <span>&times;</span>
       </button>
