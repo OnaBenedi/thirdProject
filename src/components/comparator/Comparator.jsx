@@ -4,26 +4,26 @@ import "./Comparator.css";
 import uberLogo from "../../assets/logos/uber.png";
 import cabifyLogo from "../../assets/logos/cabify.png";
 import taxiLogo from "../../assets/logos/taxi.png";
-import ModalConfirmation from "../modal-confirmation/ModalConfirmation";
+// import ModalConfirmation from "../modal-confirmation/ModalConfirmation";
 //import Options from "../options/Options";
 
-function Comparator({ uberData, cabifyData, taxiData, distance, time }) {
+function Comparator({ uberData, cabifyData, taxiData, distance, time, onConfirm }) {
   const [uberPrice, setUberPrice] = useState();
   const [cabifyPrice, setCabifyPrice] = useState();
   const [taxiPrice, setTaxiPrice] = useState();
   const [optionsData, setOptionsData] = useState([]);
 
-  const [confirmed, setConfirmed] = useState(false);
+  // const [confirmed, setConfirmed] = useState(false);
 
 
 
-  function handleConfirmedTrip() {
-    setConfirmed(true);
-  }
+  // function handleConfirmedTrip() {
+  //   setConfirmed(true);
+  // }
 
-  function handleClosedModal() {
-    setConfirmed(false);
-  }
+  // function handleClosedModal() {
+  //   setConfirmed(false);
+  // }
 
   useEffect(() => {
     setUberPrice(calculateTripPrice(uberData.fare.value, distance));
@@ -60,7 +60,7 @@ function Comparator({ uberData, cabifyData, taxiData, distance, time }) {
               </div>
             ) : null}
           </div>
-          <button className="select-button" onClick={handleConfirmedTrip}>
+          <button className="select-button" onClick={onConfirm}>
             Select
           </button>
         </div>
@@ -83,7 +83,7 @@ function Comparator({ uberData, cabifyData, taxiData, distance, time }) {
               </div>
             ) : null}
           </div>
-          <button className="select-button" onClick={handleConfirmedTrip}>
+          <button className="select-button" onClick={onConfirm}>
             Select
           </button>
         </div>
@@ -107,14 +107,14 @@ function Comparator({ uberData, cabifyData, taxiData, distance, time }) {
               </div>
             ) : null}
           </div>
-          <button className="select-button" onClick={handleConfirmedTrip}>
+          <button className="select-button" onClick={onConfirm}>
             Select
           </button>
         </div>
       </div>
-      {confirmed ? (
+      {/* {confirmed ? (
         <ModalConfirmation sendDataToParent={handleClosedModal} />
-      ) : null}
+      ) : null} */}
     </div>
   );
 }

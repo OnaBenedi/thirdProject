@@ -10,6 +10,7 @@ import highDemand from "../../../assets/svg/signal-strong-svgrepo-com.svg"
 import sunnyWeather from "../../../assets/svg/sun.svg"
 import rainyWeather from "../../../assets/svg/rain.svg"
 import snowyWeather from "../../../assets/svg/snow.svg"
+import ModalConfirmation from "../../modal-confirmation/ModalConfirmation";
 
 function HomeBody() {
   //almacena las direcciones escritas
@@ -35,6 +36,10 @@ function HomeBody() {
   const [cabifyData, setCabifyData] = useState();
   const [taxiData, setTaxiData] = useState();
   const [fareData, setFareData] = useState();
+
+  //Estado para controlar la visibilidad del modal
+  const [isModalVisible, setIsModalVisible] = useState(false)
+  const [demandConditions, setDemandConditions] = useState("")
 
   //cargamos la api a la vez que la pagina
   useEffect(() => {
@@ -71,6 +76,17 @@ function HomeBody() {
       origin: from,
       destination: destination,
     });
+  }
+  
+  //Funcion para manejar el cierre del modal 
+  function handlCloseModal () {
+    setIsModalVisible(false)
+  }
+
+  //Funcion para abrir el modal
+  function handleShowModal (){
+    setIsModalVisible(true);
+    setDemandConditions(fareData.demand_conditions);
   }
 
   return (
@@ -139,10 +155,13 @@ function HomeBody() {
             taxiData={taxiData}
             distance={distance}
             time={tripDuration}
+            onConfirm={handleShowModal}
 
           />
         </div>
       ) : null}
+
+      {isModalVisible && <ModalConfirmation demandConditions= {demandConditions} sendDataToParent={handlCloseModal} />}
     </div>
   );
 }
