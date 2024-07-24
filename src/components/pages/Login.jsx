@@ -67,13 +67,13 @@ function Login() {
     <div className="Login">
       <div className="container">
         <div className="left">
-          <h2>Crear cuenta</h2>
+          <h2>Create an account</h2>
           <button className="signInButton" onClick={() => navigate("/signup")}>
-            Registrarse
+            Sign up
           </button>
         </div>
         <div className="right">
-          <h2>Bienvenido</h2>
+          <h2>Welcome</h2>
           <form onSubmit={handleSubmit}>
             <input
               className="login-input"
@@ -90,10 +90,10 @@ function Login() {
               onChange={(event) => setPassword(event.target.value)}
             />
             {isRegister ? (
-              <button type="submit">Regístrate</button>
+              <button type="submit">Sign up</button>
             ) : (
               <button type="submit" className="loginButton" onClick={signIn}>
-                Iniciar Sesión
+                Log in
               </button>
             )}
           </form>
@@ -109,7 +109,7 @@ function Login() {
           )}
           {token && <div>Logged in with token: {token}</div>}
           <a href="#" className="resetPassword">
-            Resetear contraseña
+            Reset password
           </a>
         </div>
       </div>

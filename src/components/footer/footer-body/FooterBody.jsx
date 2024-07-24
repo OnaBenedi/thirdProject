@@ -7,8 +7,8 @@ function FooterBody() {
     <div>
       <footer className="footer">
           <div className="footer-content">
-            <p>© 2024 HopOn! Todos los derechos reservados.</p>
-            <p>Desarrollado por:</p>
+            <p>© 2024 All rights reserved.</p>
+            <p>Developed by:</p>
             <div className="links-container">
               <a href="https://www.linkedin.com/in/ona-benedi/" id="linkedin">Ona Benedí</a> <FontAwesomeIcon icon={faLinkedin} />
               <a href="https://www.linkedin.com/in/maria-bona-enguita/" id="linkedin">María Bona </a> <FontAwesomeIcon icon={faLinkedin} />

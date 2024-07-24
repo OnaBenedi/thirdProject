@@ -14,7 +14,7 @@ function TripsBody() {
       <div className="trips">
 
         <div className="restaurants">
-          <h3>Restaurantes</h3>
+          <h3>Restaurants</h3>
           <ul>
             {tripDataObj ? restaurants.map((restaurant, index)=>{
               return <div key={index}>
@@ -24,7 +24,7 @@ function TripsBody() {
           </ul>
         </div>
         <div className="hotels">
-          <h3>Hoteles</h3>
+          <h3>Hotels</h3>
           <ul>
           {tripDataObj ? hotels.map((hotel, index)=>{
               return <div key={index}>
@@ -34,7 +34,7 @@ function TripsBody() {
           </ul>
         </div>
         <div className="train-stations">
-          <h3>Estaciones</h3>
+          <h3>Stations</h3>
           <ul>
           {tripDataObj ? stations.map((station, index)=>{
               return <div key={index}>

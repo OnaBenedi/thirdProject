@@ -31,16 +31,16 @@ function HamburguerMenu() {
           </button>
           <ul>
             <li>
-              <Link to={"/home"}>Inicio</Link>
+              <Link to={"/home"}>Home</Link>
             </li>
             <li>
-              <Link to={"/profile"}>Perfil</Link>
+              <Link to={"/profile"}>Profile</Link>
             </li>
             <li>
-              <Link to={"/trips"}>Viajes</Link>
+              <Link to={"/trips"}>Trips</Link>
             </li>
             <li>
-              <Link to={"/config"}>Ajustes</Link>
+              <Link to={"/config"}>Settings</Link>
             </li>
           </ul>
         </nav>

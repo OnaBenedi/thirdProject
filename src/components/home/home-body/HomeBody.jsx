@@ -93,28 +93,28 @@ function HomeBody() {
     <div className="home-body">
       <div className="search-bar">
         <div className="title">
-          <h2>Bienvenido a HopOn!</h2>
+          <h2>Welcome to HopOn!</h2>
         </div>
         <form onSubmit={handleSubmit} className="search">
-          <label htmlFor="origin" >Origen:</label>
+          <label htmlFor="origin" >Origin:</label>
           <input
             type="text"
             name="from"
             value={from}
             onChange={handleOriginTrip}
             className="search-input"
-            id="origin" placeholder="Inserte su origen"
+            id="origin" placeholder="Enter your origin"
           />
           <div className="line-space"></div>
           <div className="line-space"></div>
-          <label htmlFor="destination">Destino:</label>
+          <label htmlFor="destination">Destination:</label>
           <input
             type="text"
             name="destination"
             value={destination}
             onChange={handleDestinationTrip}
             className="search-input"
-            id="destination" placeholder="Inserte su destino"
+            id="destination" placeholder="Enter your destination"
           />
           <button className="search-button">🔍</button>
         </form>
@@ -124,14 +124,14 @@ function HomeBody() {
         <div className="fare-data">
 
           <div className="climate">
-            Clima actual
+            Current weather
             {fareData.weather_conditions === "sunny" && <img alt="sunny-weather" src={sunnyWeather} />}
             {fareData.weather_conditions === "rainy" && <img alt="rainy-weather" src={rainyWeather} />}
             {fareData.weather_conditions === "snowy" && <img alt="snowy-weather" src={snowyWeather} />}
           </div>
 
           <div>
-            Demanda del servicio
+            Service demand
             {fareData.demand_conditions === "low" && <img alt="low-demand" src={lowDemand}/>}
             {fareData.demand_conditions === "regular" &&
               <img alt="medium-demand" src={mediumDemand} />}

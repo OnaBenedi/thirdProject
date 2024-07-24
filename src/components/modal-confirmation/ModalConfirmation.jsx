@@ -9,16 +9,16 @@ function ModalConfirmation({demandConditions, sendDataToParent, favDestination})
   let demandMessage;
   switch(demandConditions){
     case "low":
-      demandMessage = "La demanda es baja, ¡tu conductor te recogerá en breve!"
+      demandMessage = "Demand is low, your driver will pick you up shortly!"
       break;
     case "regular":
-      demandMessage = "La demanda es normal, ¡tu conductor está de camino!"
+      demandMessage = "Demand is regular, your driver is en route!"
       break;
     case "high":
-      demandMessage = "La demanda es alta, ¡ten un poco de paciencia hasta que llegue tu conductor!"
+      demandMessage = "Demand is high, please be patient until your driver arrives!"
       break;
     default:
-      demandMessage = "¡Tu conductor está de camino!"
+      demandMessage = "Your driver is en route!"
   }
 
   function handleFavDestinationCategory (event){
@@ -43,20 +43,20 @@ function ModalConfirmation({demandConditions, sendDataToParent, favDestination})
     <div className="modal-wrapper">
       <img src={driverLogo} alt="driver-logo" className="driver" />
       <div className="modal-text">
-        <p>Calma, nosotros nos ocupamos de todo.</p>
+        <p>Relax, we take care of everything.</p>
         <p>
           {demandMessage}
         </p>
         <div className="add-favs">
-          <p className="fav-p">Añade este destino a favoritos:</p>
+          <p className="fav-p">Add this destination to favorites:</p>
           <div className="categories-button">
             <select name="favs" id="fav-trips" onChange={handleFavDestinationCategory}>
-              <option value="none">Selecciona una opción</option>
-              <option value="restaurants" >Restaurantes</option>
+              <option value="none">Select an option</option>
+              <option value="restaurants" >Restaurants</option>
               <option value="hotels">Hotels</option>
-              <option value="stations">Estaciones</option>
+              <option value="stations">Stations</option>
             </select>
-            <button onClick={handleFavDestination} id="add-button">Añadir</button>
+            <button onClick={handleFavDestination} id="add-button">Add</button>
           </div>
         </div>
       </div>

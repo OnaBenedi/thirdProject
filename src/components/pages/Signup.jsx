@@ -90,13 +90,13 @@ function Signup() {
       <div className="Login">
         <div className="container-signup">
           <div className="left">
-            <h2>Crear cuenta</h2>
+            <h2>Create an account</h2>
             <button className="signInButton" onClick={toggleRegister}>
-              Registrarse
+              Sign up
             </button>
           </div>
           <div className="right">
-            <h2>Bienvenido</h2>
+            <h2>Welcome</h2>
             <form onSubmit={handleSubmit}>
               <input
                 className="login-input"
@@ -132,7 +132,7 @@ function Signup() {
                   className="loginButton"
                   onClick={onSubmitUser}
                 >
-                  Iniciar Sesión
+                  Log in
                 </button>
               )}
             </form>
@@ -147,7 +147,7 @@ function Signup() {
             )}
             {token && <div>Logged in with token: {token}</div>}
             <a href="#" className="resetPassword">
-              Resetear contraseña
+              Reset password
             </a>
           </div>
         </div>

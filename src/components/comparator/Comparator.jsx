@@ -34,7 +34,7 @@ function Comparator({ uberData, cabifyData, taxiData, distance, time, onConfirm 
 
   return (
     <div className="duracion-comparator">
-      Duración del trayecto: {time}
+      Trip's duration: {time}
       <div className="comparator">
         {/* {optionsData ? optionsData.map((company)=>{
           <Options companyLogo={()=>{
@@ -49,13 +49,13 @@ function Comparator({ uberData, cabifyData, taxiData, distance, time, onConfirm 
             {uberPrice ? (
               <div>
                 <p>
-                  Precio de tu viaje con Uber:{" "}
+                  Uber price:{" "}
                   <strong>
                     {uberPrice.finalTripPrice} {uberData.fare.currency_code}
                   </strong>
                 </p>
                 <p>
-                  El conductor llegará en {uberData.pickup_estimate} minutos{" "}
+                  The driver will arrive in {uberData.pickup_estimate} minutes{" "}
                 </p>
               </div>
             ) : null}
@@ -72,13 +72,13 @@ function Comparator({ uberData, cabifyData, taxiData, distance, time, onConfirm 
             {cabifyPrice ? (
               <div>
                 <p>
-                  Precio de tu viaje con Cabify:{" "}
+                  Cabify price:{" "}
                   <strong>
                     {cabifyPrice.finalTripPrice} {cabifyData.fare.currency_code}
                   </strong>
                 </p>
                 <p>
-                  El conductor llegará en {cabifyData.pickup_estimate} minutos
+                  The driver will arrive in {cabifyData.pickup_estimate} minutes
                 </p>
               </div>
             ) : null}
@@ -95,14 +95,14 @@ function Comparator({ uberData, cabifyData, taxiData, distance, time, onConfirm 
             {taxiPrice ? (
               <div>
                 <p className="taxi-text">
-                  Precio de tu viaje con un taxi:{" "}
+                  Taxi price:{" "}
                   <strong>
                     {taxiPrice.finalTripPrice} {taxiData.fare.currency_code}
                   </strong>
                 </p>
                 <p>
                   {" "}
-                  El conductor llegará en {taxiData.pickup_estimate} minutos
+                  The driver will arrive in {taxiData.pickup_estimate} minutes
                 </p>
               </div>
             ) : null}
