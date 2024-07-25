@@ -11,6 +11,8 @@ import sunnyWeather from "../../../assets/svg/sun.svg"
 import rainyWeather from "../../../assets/svg/rain.svg"
 import snowyWeather from "../../../assets/svg/snow.svg"
 import ModalConfirmation from "../../modal-confirmation/ModalConfirmation";
+import LanguageSwitcher from "../../LanguageSwitcher";
+import { useTranslation } from 'react-i18next';
 
 function HomeBody() {
   //almacena las direcciones escritas
@@ -20,9 +22,8 @@ function HomeBody() {
     origin: "",
     destination: "",
   });
-
   //importa la data del hook que hace el primer fetch, trae la distancia y el tiempo
-
+  const { t } = useTranslation();
   const { data, error, isLoading, fetchDirections } = useGoogleMaps(
     originAndDestination.origin,
     originAndDestination.destination
@@ -88,6 +89,7 @@ function HomeBody() {
     setIsModalVisible(true);
     setDemandConditions(fareData.demand_conditions);
   }
+
 
   return (
     <div className="home-body">
