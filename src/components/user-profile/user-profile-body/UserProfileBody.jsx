@@ -1,5 +1,6 @@
 import "./UserProfileBody.css"
 import dummyIcon from "../../../assets/logos/rabbit-icon.png"
+import { Link } from "react-router-dom";
 
 
 function UserProfileBody() {
@@ -19,9 +20,9 @@ function UserProfileBody() {
         </div>
       </div>
       <div className="profile-links">
-          <a href="#" id="link1">Ajustes</a>
+          <a href="#" id="link1"><Link to="/config">Payment Method</Link></a>
           <a href="#" id="link2">Método de Pago</a>
-          <a href="#" id="link3">Protección de Datos</a>
+          <a href="#" id="link3"><Link to="/payment">Payment Method</Link></a>
         </div>
     </div>
   );
