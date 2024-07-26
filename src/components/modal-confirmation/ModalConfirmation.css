@@ -42,18 +42,18 @@
         text-align: center;
     }
     & #fav-trips {
-        font-size: 15px; 
-        padding: 10px; 
-        border: 2px solid #E4CC84; 
+        font-size: 15px;
+        padding: 10px;
+        border: 2px solid #E4CC84;
         border-radius: 5px;
-        background-color: #E2E8E6; 
-        color: #333; 
-        cursor: pointer; 
+        background-color: #E2E8E6;
+        color: #333;
+        cursor: pointer;
     }
-    
+
     & #fav-trips:focus {
-        outline: none; 
-        border-color: #E4CC84; 
+        outline: none;
+        border-color: #E4CC84;
     }
 }
 
@@ -84,8 +84,8 @@
         }
     }
     .close-button {
-        left: 80vw;
-        top: -3vh;
+        left: 61vw;
+        top: -1vh;
         padding: 0;
     }
     .close-button span{
@@ -113,8 +113,8 @@
         }
     }
     .close-button {
-        left: 80vw;
-        top: -3vh;
+        left: 74vw;
+        top: -1vh;
         padding: 0;
     }
     .close-button span{
