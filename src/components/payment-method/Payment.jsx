@@ -4,13 +4,15 @@ import Header from "../header/Header"
 
 function Payment() {
   return (
-    <>
-      <Header/>
-      <main>
-      <PaymentBody/>
-      </main>
-      <Footer/>
-    </>
+    
+      <div style={{display:"flex", flexDirection:"column", height:"100vh", justifyContent:"space-between"}}>
+        <Header/>
+        <main>
+        <PaymentBody/>
+        </main>
+        <Footer/>
+      </div>
+    
   )
 }
 
