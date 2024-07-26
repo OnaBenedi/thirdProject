@@ -5,6 +5,7 @@ import { auth, db } from "../../config/firebase";
 import { createUserWithEmailAndPassword, signOut, } from "firebase/auth";
 import { collection, addDoc } from "firebase/firestore";
 import Footer from "../footer/Footer.jsx"
+import { useNavigate } from 'react-router-dom';
 
 function Signup() {
   const [email, setEmail] = useState("");
@@ -16,6 +17,7 @@ function Signup() {
   const [surname, setSurname] = useState("");
 
   const usersCollectionRef = collection(db, "users");
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -40,7 +42,7 @@ function Signup() {
         if (emailTrue && passwordTrue) {
           const token = await login(email, password);
           setToken(token);
-          setMessage("Logged in successfully!");
+          setMessage("Account created successfully!");
         } else {
           setMessage("Please provide both email and password");
         }
@@ -90,9 +92,9 @@ function Signup() {
       <div className="Login">
         <div className="container-signup">
           <div className="left">
-            <h2>Create an account</h2>
-            <button className="signInButton" onClick={toggleRegister}>
-              Sign up
+            <h2>Already have an account?</h2>
+            <button className="signInButton" onClick={() => navigate("/")}>
+              Log in
             </button>
           </div>
           <div className="right">
@@ -132,7 +134,7 @@ function Signup() {
                   className="loginButton"
                   onClick={onSubmitUser}
                 >
-                  Log in
+                  Create Account
                 </button>
               )}
             </form>

@@ -45,16 +45,16 @@ function Comparator({ uberData, cabifyData, taxiData, distance, time, onConfirm 
           <label className="radio-option" >
             <img src={uberLogo} alt="uber-logo" />
           </label>
-          <div className="ride-text">
+          <div className="ride-text text-padding">
             {uberPrice ? (
-              <div>
-                <p>
+              <div >
+                <p className="ride-text">
                   Uber price:{" "}
                   <strong>
                     {uberPrice.finalTripPrice} {uberData.fare.currency_code}
                   </strong>
                 </p>
-                <p>
+                <p className="ride-text">
                   The driver will arrive in {uberData.pickup_estimate} minutes{" "}
                 </p>
               </div>
@@ -71,13 +71,13 @@ function Comparator({ uberData, cabifyData, taxiData, distance, time, onConfirm 
           <div className="ride-text">
             {cabifyPrice ? (
               <div>
-                <p>
+                <p className="ride-text">
                   Cabify price:{" "}
                   <strong>
                     {cabifyPrice.finalTripPrice} {cabifyData.fare.currency_code}
                   </strong>
                 </p>
-                <p>
+                <p className="ride-text">
                   The driver will arrive in {cabifyData.pickup_estimate} minutes
                 </p>
               </div>
@@ -94,13 +94,13 @@ function Comparator({ uberData, cabifyData, taxiData, distance, time, onConfirm 
           <div className="ride-text">
             {taxiPrice ? (
               <div>
-                <p className="taxi-text">
+                <p className="taxi-text ride-text">
                   Taxi price:{" "}
                   <strong>
                     {taxiPrice.finalTripPrice} {taxiData.fare.currency_code}
                   </strong>
                 </p>
-                <p>
+                <p className="ride-text">
                   {" "}
                   The driver will arrive in {taxiData.pickup_estimate} minutes
                 </p>

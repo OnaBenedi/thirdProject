@@ -108,3 +108,58 @@
     color: #6BBAA7;
     text-decoration: underline;
   }
+
+
+@media (max-width: 768px) {
+  .container-signup {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+    height: 80%;
+  }
+
+  .left, .right {
+    border-radius: 0;
+  }
+
+  .signInButton, .loginButton {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .login-input {
+    max-width: 100%;
+  }
+}
+
+
+@media (max-width: 429px) {
+  .container-signup {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+    height: 85%;
+  }
+
+  .left, .right {
+    border-radius: 0;
+  }
+
+  .signInButton, .loginButton {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .login-input {
+    max-width: 100%;
+  }
+}
+
+
+
+
+
