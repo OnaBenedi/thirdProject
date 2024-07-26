@@ -9,13 +9,13 @@ function ModalConfirmation({demandConditions, sendDataToParent, favDestination})
   let demandMessage;
   switch(demandConditions){
     case "low":
-      demandMessage = "Demand is low, your driver will pick you up shortly!"
+      demandMessage = "The demand is low, your driver will pick you up shortly!"
       break;
     case "regular":
-      demandMessage = "Demand is regular, your driver is en route!"
+      demandMessage = "The demand is regular, your driver is en route!"
       break;
     case "high":
-      demandMessage = "Demand is high, please be patient until your driver arrives!"
+      demandMessage = "The demand is high, please be patient until your driver arrives!"
       break;
     default:
       demandMessage = "Your driver is en route!"
@@ -43,7 +43,7 @@ function ModalConfirmation({demandConditions, sendDataToParent, favDestination})
     <div className="modal-wrapper">
       <img src={driverLogo} alt="driver-logo" className="driver" />
       <div className="modal-text">
-        <p>Relax, we take care of everything.</p>
+        <p>Relax, we will take care of everything.</p>
         <p>
           {demandMessage}
         </p>

@@ -100,13 +100,13 @@ function Signup() {
             <form onSubmit={handleSubmit}>
               <input
                 className="login-input"
-                placeholder="Nombre"
+                placeholder="Name"
                 type="text"
                 onChange={(e) => setName(e.target.value)}
               />
               <input
                 className="login-input"
-                placeholder="Apellido"
+                placeholder="Surname"
                 type="text"
                 onChange={(e) => setSurname(e.target.value)}
               />
