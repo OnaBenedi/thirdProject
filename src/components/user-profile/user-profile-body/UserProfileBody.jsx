@@ -1,9 +1,33 @@
 import "./UserProfileBody.css"
 import dummyIcon from "../../../assets/logos/rabbit-icon.png"
 import { Link } from "react-router-dom";
+import { auth, db } from "../../../config/firebase";
+import { doc, getDoc } from "firebase/firestore";
+import { useEffect, useState } from "react";
 
 
 function UserProfileBody() {
+  const [userData, setUserData] = useState([]);
+
+
+  const retrieveDataUser = async () => {
+    try {
+      const docRef = doc(db, "users", auth.currentUser.uid);
+      const docSnap = await getDoc(docRef);
+
+      if(docSnap.exists()) {
+        const data = docSnap.data();
+        setUserData(data)
+      }
+    } catch {
+      console.error(err.message)
+    }
+  }
+
+  useEffect(() => {
+    retrieveDataUser();
+  }, [])
+
   return (
     <div className="user-profile-body">
       <div className="profile-body-up">
@@ -13,16 +37,16 @@ function UserProfileBody() {
         </div>
         <div className="profile-right">
           <div className="profile-info">
-            <h2>Christopher Jiménez</h2>
-            <p>Email: christ.test@gmail.com</p>
-            <p>Phone number: +34618129617</p>
+            <h2>{userData.nombre} {userData.apellido}</h2>
+            <p>Email: {userData.email}</p>
+            <p>Phone number: {userData.phoneNumber}</p>
           </div>
         </div>
       </div>
       <div className="profile-links">
-          <a href="#" id="link1"><Link to="/config">Settings</Link></a>
-          <a href="#" id="link2"><Link to="/payment">Payment Method</Link></a>
-        </div>
+        <a href="#" id="link1"><Link to="/config">Settings</Link></a>
+        <a href="#" id="link2"><Link to="/payment">Payment Method</Link></a>
+      </div>
     </div>
   );
 }
