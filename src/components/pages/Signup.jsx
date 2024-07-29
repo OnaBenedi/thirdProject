@@ -1,6 +1,6 @@
 import "./Signup.css";
 import { useState } from "react";
-import { auth, db, provider } from "../../config/firebase";
+import { auth, db } from "../../config/firebase";
 import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 import Footer from "../footer/Footer.jsx"
@@ -36,14 +36,14 @@ function Signup() {
       <div className="Login">
         <div className="container-signup">
           <div className="left">
-            <h2>Already have an account?</h2>
+            <h2 className="login-title-left">Already have an account?</h2>
             <button className="signInButton" onClick={() => navigate("/")}>
               Log in
             </button>
           </div>
           <div className="right">
-            <h2>Welcome</h2>
-            <form onSubmit={handleSubmit}>
+            <h2 className="signup-title-right">Welcome</h2>
+            <form onSubmit={handleSubmit} className="signup-form">
               <div className="name-container">
                 <input
                   className="login-input"
