@@ -1,8 +1,8 @@
 import "./Signup.css";
 import { useState } from "react";
-import { auth, db } from "../../config/firebase";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { collection, doc, addDoc, setDoc } from "firebase/firestore";
+import { auth, db, provider } from "../../config/firebase";
+import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore";
 import Footer from "../footer/Footer.jsx"
 import { useNavigate } from 'react-router-dom';
 
@@ -44,18 +44,20 @@ function Signup() {
           <div className="right">
             <h2>Welcome</h2>
             <form onSubmit={handleSubmit}>
-              <input
-                className="login-input"
-                placeholder="Name"
-                type="text"
-                onChange={(e) => setName(e.target.value)}
-              />
-              <input
-                className="login-input"
-                placeholder="Surname"
-                type="text"
-                onChange={(e) => setSurname(e.target.value)}
-              />
+              <div className="name-container">
+                <input
+                  className="login-input"
+                  placeholder="Name"
+                  type="text"
+                  onChange={(e) => setName(e.target.value)}
+                />
+                <input
+                  className="login-input"
+                  placeholder="Surname"
+                  type="text"
+                  onChange={(e) => setSurname(e.target.value)}
+                />
+              </div>
               <input
                 className="login-input"
                 placeholder="Phone Number"
@@ -76,11 +78,8 @@ function Signup() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
-              <button
-                type="submit"
-                className="loginButton"
-              >
-                Create Account
+              <button type="submit" className="login-button">
+                Sign up
               </button>
             </form>
           </div>
