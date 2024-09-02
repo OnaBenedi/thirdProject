@@ -1,10 +1,22 @@
 import React, { useState } from "react";
 import "./HamburguerMenu.css";
 import mainLogo from "../../../assets/logos/main-logo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { signOut } from "firebase/auth";
+import { auth } from "../../../config/firebase";
 
 function HamburguerMenu() {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const logOut = async () => {
+    try {
+      await signOut(auth);
+      navigate("/")
+    } catch {
+      console.error(err.message)
+    }
+  }
 
   function toggleMenu() {
     setIsOpen(!isOpen);
@@ -43,6 +55,9 @@ function HamburguerMenu() {
               <Link to={"/config"}>Settings</Link>
             </li>
           </ul>
+          <button className="logout-button" onClick={logOut}>
+            Log out
+          </button>
         </nav>
       )}
     </div>

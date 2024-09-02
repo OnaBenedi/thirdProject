@@ -1,161 +1,91 @@
 import "./Signup.css";
 import { useState } from "react";
-import { register, login } from "../../../user-info/login";
 import { auth, db } from "../../config/firebase";
-import { createUserWithEmailAndPassword, signOut, } from "firebase/auth";
-import { collection, addDoc } from "firebase/firestore";
+import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore";
 import Footer from "../footer/Footer.jsx"
 import { useNavigate } from 'react-router-dom';
 
 function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isRegister, setIsRegister] = useState(false);
-  const [token, setToken] = useState(null);
-  const [message, setMessage] = useState("");
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
+  const [number, setNumber] = useState("");
 
-  const usersCollectionRef = collection(db, "users");
   const navigate = useNavigate();
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
-    const emailTrue = email.trim();
-    const passwordTrue = password.trim();
-
-    if (isRegister) {
-      try {
-        if (emailTrue && passwordTrue) {
-          await register(email, password);
-          setMessage("User created successfully!");
-        } else {
-          setMessage("Please provide both email and password");
-        }
-      } catch (error) {
-        console.error(error);
-        setMessage("Error creating user");
-      }
-    } else {
-      try {
-        if (emailTrue && passwordTrue) {
-          const token = await login(email, password);
-          setToken(token);
-          setMessage("Account created successfully!");
-        } else {
-          setMessage("Please provide both email and password");
-        }
-      } catch (error) {
-        console.error(error);
-        setMessage("Invalid email or password");
-      }
-    }
-  };
-
-  const toggleRegister = () => {
-    setIsRegister(!isRegister);
-  };
-
-  const signIn = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     try {
       await createUserWithEmailAndPassword(auth, email, password);
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
-  const logout = async () => {
-    try {
-      await signOut(auth);
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
-  const onSubmitUser = async () => {
-    try {
-      await createUserWithEmailAndPassword(auth, email, password);
-      await addDoc(usersCollectionRef, {
+      await setDoc(doc(db, "users", auth.currentUser.uid), {
         nombre: name,
         apellido: surname,
-      });
+        phoneNumber: number,
+        email: email,
+      })
+      navigate("/home")
     } catch (err) {
-      console.log(err);
+      console.error(err.message);
     }
   };
 
-  console.log(auth);
-
   return (
-    <div style={{display: "flex", flexDirection: "column", gap: "25%"}}>
+    <div style={{ display: "flex", flexDirection: "column", height: "100svh" }}>
       <div className="Login">
         <div className="container-signup">
           <div className="left">
-            <h2>Already have an account?</h2>
+            <h2 className="login-title-left">Already have an account?</h2>
             <button className="signInButton" onClick={() => navigate("/")}>
               Log in
             </button>
           </div>
           <div className="right">
-            <h2>Welcome</h2>
-            <form onSubmit={handleSubmit}>
+            <h2 className="signup-title-right">Welcome</h2>
+            <form onSubmit={handleSubmit} className="signup-form">
+              <div className="name-container">
+                <input
+                  className="login-input"
+                  placeholder="Name"
+                  type="text"
+                  onChange={(e) => setName(e.target.value)}
+                />
+                <input
+                  className="login-input"
+                  placeholder="Surname"
+                  type="text"
+                  onChange={(e) => setSurname(e.target.value)}
+                />
+              </div>
               <input
                 className="login-input"
-                placeholder="Name"
+                placeholder="Phone Number"
                 type="text"
-                onChange={(e) => setName(e.target.value)}
-              />
-              <input
-                className="login-input"
-                placeholder="Surname"
-                type="text"
-                onChange={(e) => setSurname(e.target.value)}
+                onChange={(e) => setNumber(e.target.value)}
               />
               <input
                 className="login-input"
                 type="email"
                 placeholder="Email"
                 value={email}
-                onChange={(event) => setEmail(event.target.value)}
+                onChange={(e) => setEmail(e.target.value)}
               />
               <input
                 className="login-input"
                 type="password"
                 placeholder="Password"
                 value={password}
-                onChange={(event) => setPassword(event.target.value)}
+                onChange={(e) => setPassword(e.target.value)}
               />
-              {isRegister ? (
-                <button type="submit">Regístrate</button>
-              ) : (
-                <button
-                  type="submit"
-                  className="loginButton"
-                  onClick={onSubmitUser}
-                >
-                  Create Account
-                </button>
-              )}
+              <button type="submit" className="login-button">
+                Sign up
+              </button>
             </form>
-            {message && (
-              <div
-                className={
-                  message.includes("Error") ? "error-message" : "success-message"
-                }
-              >
-                {message}
-              </div>
-            )}
-            {token && <div>Logged in with token: {token}</div>}
-            <a href="#" className="resetPassword">
-              Reset password
-            </a>
           </div>
         </div>
-
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

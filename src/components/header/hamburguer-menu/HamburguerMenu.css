@@ -6,10 +6,6 @@
   justify-content: space-between;
   cursor: pointer;
   z-index: 1000;
-
-
-
-
 }
 
 .hamburger-icon .bar {
@@ -34,9 +30,11 @@
 .menu.open {
   right: 0;
 }
+
 .main-logo-small {
   height: 10vh;
 }
+
 .menu ul {
   list-style: none;
   padding: 20px;
@@ -73,21 +71,39 @@
 .close-button span {
   font-size: 24px;
 }
-@media (max-width: 768px){
+
+.logout-button {
+  padding: 5px;
+  height: 40px !important;
+  width: 150px;
+  border: none;
+  border-radius: 50px;
+  background-color: #6BBAA7;
+  color: white;
+  cursor: pointer;
+  position: inherit;
+  bottom: 50px;
+  right: 40px;
+}
+
+@media (max-width: 768px) {
 
   .menu.open {
     left: 0;
     width: 100vw;
   }
+
   .main-logo-small {
     height: 20vh;
     margin-left: 26vw;
   }
-  .close-button{
+
+  .close-button {
     font-size: 72px;
     left: 76vw;
     top: -2vh;
   }
+
   .close-button span {
     font-size: 72px;
     left: 64vw;
@@ -99,6 +115,7 @@
   .hamburger-icon {
     height: 2vh;
   }
+
   .hamburger-icon .bar {
     width: 6vw;
   }
@@ -107,15 +124,18 @@
     left: 0;
     width: 100vw;
   }
+
   .main-logo-small {
     height: 20vh;
     margin-left: 24vw;
   }
-  .close-button{
+
+  .close-button {
     font-size: 72px;
     left: 64vw;
     top: -2vh;
   }
+
   .close-button span {
     font-size: 72px;
     left: 64vw;
