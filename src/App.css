@@ -41,3 +41,9 @@
   color: #888;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: black;
+    background-color: #ffffff;
+  }
+}
