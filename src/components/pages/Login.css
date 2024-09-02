@@ -125,6 +125,7 @@
     box-shadow: none;
   }
 
+
   .left, .right {
     border-radius: 0;
   }
@@ -141,16 +142,19 @@
 
 
 @media (max-width: 429px) {
-  .container {
+  .container-login {
     display: flex;
     flex-direction: column;
     width: 100%;
     border-radius: 0;
     box-shadow: none;
   }
-
+  .Login{
+    width: 100%;
+  }
   .left, .right {
     border-radius: 0;
+    height: 10vh;
   }
 
   .signInButton, .loginButton {
