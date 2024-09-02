@@ -66,6 +66,8 @@
   border: none;
   font-size: 24px;
   cursor: pointer;
+  width: 5vw;
+  padding: 0;
 }
 
 .close-button span {
